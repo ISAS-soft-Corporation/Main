@@ -58,7 +58,10 @@ namespace CinemaLive
                 TextBox_Login.ToolTip = "";
                 TextBox_Login.Background = Brushes.Transparent;
                 PasswordBox_input.ToolTip = "";
-                PasswordBox_input.Background = Brushes.Transparent;              
+                PasswordBox_input.Background = Brushes.Transparent;
+                Catalog catalog = new Catalog();
+                catalog.Show();
+                Hide();
             }
         }
     }

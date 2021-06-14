@@ -7,10 +7,10 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Image Source="istock-614987504-front.jpg" HorizontalAlignment="Center" Width="1468" Margin="-65,10,-123,-104"/>
+        <Image Source="istock-614987504-front.jpg" HorizontalAlignment="Center" Width="1503" Margin="-109,10,-114,-141"/>
         <Border MinWidth="400" Margin="0,0,26,24" Background="#7F2C2CF1" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="30" MaxWidth="550" CornerRadius="20">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="60" Color="DarkBlue" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="60" Color="#7F2C2CF1" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
                 <Label Content="Регистрация" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="White">
@@ -34,11 +34,6 @@
                     <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6"/>
                 </Button>
             </StackPanel>
-        </Grid>
-        <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF1F252C">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
-            </Grid.Effect>
         </Grid>
     </Grid>
 </Window>

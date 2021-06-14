@@ -22,3 +22,5 @@ Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug
 Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\CinemaLive.csproj.CopyComplete
 Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\EntryWindow.g.cs
 Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\EntryWindow.baml
+Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\Catalog.g.cs
+Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\Catalog.baml
