@@ -23,7 +23,7 @@
                 </Button>
             </StackPanel>
             <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,7,1141,9" Height="Auto" Click="Button_Logout_Click">
-                <materialDesign:PackIcon Kind="Logout" Foreground="#FF5C99D6" Width="33" Height="29"/>
+                <materialDesign:PackIcon Kind="Logout" Foreground="#FF5C99D6" Width="28" Height="28"/>
             </Button>
         </Grid>
         <Grid x:Name="Filters" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="500" RenderTransformOrigin="0.438,0.499" >

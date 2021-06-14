@@ -14,6 +14,9 @@
                     <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6" Height="28" Width="28"/>
                 </Button>
             </StackPanel>
+            <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,7,1141,9" Height="Auto" Click="Button_Logout_Click">
+                <materialDesign:PackIcon Kind="Logout" Foreground="#FF5C99D6" Width="28" Height="28"/>
+            </Button>
         </Grid>
         <Grid>
             <Border  Margin="40,90,70,10" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="620" Width="1170" >
@@ -26,13 +29,13 @@
             <Button x:Name="Favorite" Foreground="Silver" Height="Auto" Margin="1071,126,117,537" Click="Button_Favorite_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="37" Width="45"/>
             </Button>
-            <Button Foreground="White" Height="Auto" Margin="962,384,224,279" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+            <Button Foreground="White" Height="Auto" Margin="727,220,459,443" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
                 <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
             </Button>
-            <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="358,126,438,428" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="1038,392,184,279" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="363,199,548,461" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5"/>
-            <TextBlock x:Name="About" FontSize ="20" Foreground="White" Text="Оставшиеся в живых члены команды Мстителей и их союзники должны разработать новый план, который поможет противостоять разрушительным действиям могущественного титана Таноса. После наиболее масштабной и трагической битвы в истории они не могут допустить ошибку. " TextWrapping="Wrap" Margin="358,259,268,32"/>
+            <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="358,126,436,501" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="800,225,422,446" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="358,219,553,441" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5"/>
+            <TextBlock x:Name="About" FontSize ="20" Foreground="White" Text="Оставшиеся в живых члены команды Мстителей и их союзники должны разработать новый план, который поможет противостоять разрушительным действиям могущественного титана Таноса. После наиболее масштабной и трагической битвы в истории они не могут допустить ошибку. " TextWrapping="Wrap" Margin="358,284,127,211"/>
             <Button x:Name="Back" Foreground="White" Height="Auto" Margin="58,624,1121,32" Click="Back_Home_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Home" Height="37" Width="45"/>
             </Button>
@@ -40,5 +43,8 @@
         <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1122,617,80,10">
             <materialDesign:PackIcon Kind="BookAccount" Foreground="White" Height="57" Width="53" BorderBrush="#FF33414F" BorderThickness="3"/>
         </Button>
+        <TextBlock Margin="358,532,582,137">
+            <Hyperlink Click="Hyperlink_Click"  Foreground="White" FontSize="25">Ссылка на просмотр фильма</Hyperlink>
+        </TextBlock>
     </Grid>
 </Window>
