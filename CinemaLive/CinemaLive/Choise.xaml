@@ -1,0 +1,86 @@
+﻿<Window x:Class="CinemaLive.Choise"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaLive"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Image Source="06-1.jpg" HorizontalAlignment="Center" Width="1503" Margin="-223,-29,0,-102"/>
+        <Grid x:Name="shapka" Height="60" VerticalAlignment="Top" Background="#FF33414F">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit" Height="Auto" Width="62">
+                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6" Height="28" Width="28"/>
+                </Button>
+            </StackPanel>
+            <Button Background="{x:Null}"  BorderBrush="{x:Null}" Height="Auto" Width="62" Margin="10,0,1208,0" Click="Button_Theatres_Click">
+                <materialDesign:PackIcon Kind="Theaters" Foreground="#FF5C99D6" Height="28" Width="28"/>
+            </Button>
+        </Grid>
+        <Grid x:Name="Navigation" Height="95" VerticalAlignment="Bottom" Margin="976,0,0,0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
+                <Button Background="#FF3E586C" BorderBrush="#FF2196F3" Foreground="#FF2196F3" Height="Auto" Margin="0,10,0,31" Width="69" Click="Button_Next_Click">
+                    <materialDesign:PackIcon Kind="NavigateNext" Foreground="White" Height="36" Width="36"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10 0" >
+                <Button Background="#FF3E586C" BorderBrush="#FF2196F3" Foreground="#FF2196F3" Height="Auto" Margin="0,10,0,31" Width="69" Click="Button_Back_Click">
+                    <materialDesign:PackIcon Kind="NavigateBefore" Foreground="White" Height="36" Width="36"/>
+                </Button>
+            </StackPanel>
+            <TextBox  x:Name="List" FontWeight="Bold" materialDesign:HintAssist.Hint="Страница" Text="1" Style="{StaticResource MaterialDesignOutlinedTextBox}"  Background="White" FontSize="16" Margin="94,7,95,29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="Films" Height="650" VerticalAlignment="Bottom" Margin="10,0,309,10" >
+            <Border  Margin="30,222,31,228" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="200" Width="900" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
+                </Border.Effect>
+                <Image Source="567640.jpg" Width="184" HorizontalAlignment="Left" Margin="0,-20"/>
+            </Border>
+            <Button x:Name="Favorite2" Foreground="Silver" Height="40" Margin="839,232,58,378" Width="64" Click="Button_Favorite2_Click" BorderBrush="{x:Null}" Background="{x:Null}">
+                <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
+            </Button>
+            <Button Foreground="Black" Height="Auto" Margin="770,348,122,239" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+                <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50" RenderTransformOrigin="0.303,0.439"/>
+            </Button>
+            <TextBlock x:Name="Film_Name2" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,240,218,323" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Rate2" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="842,359,65,249" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Info2" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,337,409,230" TextWrapping="Wrap"/>
+            <Border  Margin="10,430,10,10" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="200" Width="900">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
+                </Border.Effect>
+                <Image Source="6c27db1c-fe8e-4a45-a5fb-b7c3caefb6b3.jpg" Width="184" HorizontalAlignment="Left" Margin="0,-20"/>
+            </Border>
+            <Button x:Name="Favorite3" Foreground="Silver" Height="40" Margin="842,446,55,164" Width="64" Click="Button_Favorite3_Click" BorderBrush="{x:Null}" Background="{x:Null}">
+                <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
+            </Button>
+            <Button Foreground="Black" Height="Auto" Margin="770,562,111,28" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+                <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
+            </Button>
+            <TextBlock x:Name="Film_Name3" Text="Игра в имитацию" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="182,446,93,78" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Rate3" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="839,572,70,28" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Info3" Text="Жанр:Военный, Драма                         Режиссер: Мортен Тильдум" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,549,426,10" TextWrapping="Wrap"/>
+            <Border  Margin="10,5,10,435" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="200" Width="900" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
+                </Border.Effect>
+                <Image Source="567640.jpg" Width="184" HorizontalAlignment="Left" Margin="0,-20"/>
+            </Border>
+            <Button x:Name="Favorite1" Foreground="Silver" Height="40" Margin="839,33,58,577" Width="64" Click="Button_Favorite1_Click" BorderBrush="{x:Null}" Background="{x:Null}">
+                <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
+            </Button>
+            <Button Foreground="Black" Height="Auto" Margin="770,143,114,456" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+                <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
+            </Button>
+            <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,33,202,535" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="839,146,65,456" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,128,409,448" TextWrapping="Wrap"/>
+            <Button x:Name="ThirdFilm" Height="Auto" Margin="182,446,218,101" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <Button x:Name="FirstFilm"  Height="Auto" Margin="187,20,218,530" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_FirstFilm_Click"/>
+            <Button x:Name="SecondFilm"  Height="Auto" Margin="187,232,218,318" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_SecondFilm_Click"/>
+        </Grid>
+    </Grid>
+</Window>
+

@@ -22,11 +22,16 @@ namespace CinemaLive
         public Catalog()
         {
             InitializeComponent();
+            shapka.MouseLeftButtonDown += new MouseButtonEventHandler(layoutRoot_MouseLeftButtonDown);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        void layoutRoot_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
         private void exit(object sender, RoutedEventArgs e)
         {
@@ -68,6 +73,27 @@ namespace CinemaLive
             Genres.SelectedIndex = -1;
             Year.Text = "";
             Ratio.Value = -1;
+        }
+
+        private void Button_FirstFilm_Click(object sender, RoutedEventArgs e)
+        {
+            FilmCard filmCard = new FilmCard();
+            filmCard.Show();
+            Hide();
+        }
+
+        private void Button_Logout_Click(object sender, RoutedEventArgs e)
+        {
+            EntryWindow entryWindow = new EntryWindow();
+            entryWindow.Show();
+            Hide();
+        }
+
+        private void Button_Choise_Click(object sender, RoutedEventArgs e)
+        {
+            Choise choise = new Choise();
+            choise.Show();
+            Hide();
         }
     }
 }

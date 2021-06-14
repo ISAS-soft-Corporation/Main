@@ -7,9 +7,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Image Source="06-1.jpg"  HorizontalAlignment="Center" Width="1468" Margin="0,-12,-188,-82"/>
-        <Grid Height="90" VerticalAlignment="Top" Background="{x:Null}" Margin="275,56,-788,0" Width="1793">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="317,27,488,27" Width="988">
+        <Image Source="mH6r0kUQL3OQKIEg7Rgxfo6thzh7Dn9j.jpg"  HorizontalAlignment="Center" Width="1931" Margin="-323,30,-328,-122"/>
+        <Grid Height="90" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="-281,75,0,0" Width="1473">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="317,27,488,27" Width="988">
                 <TextBox  x:Name="Search" materialDesign:HintAssist.Hint="ПОИСК ПО ФИЛЬМАМ" Foreground="White" Width="600" FontSize="20" Background="#FF596A7A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-2,0,0,0" />
                 <Button Background="#FF3E586C" BorderBrush="#FF2196F3" Foreground="#FF2196F3" Height="36">
                     <materialDesign:PackIcon Kind="Magnify" Foreground="#FF2196F3"  Height="25" VerticalAlignment="Center" Margin="5"/>
@@ -18,34 +18,43 @@
         </Grid>
         <Grid x:Name="shapka" Height="60" VerticalAlignment="Top" Background="#FF33414F">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit">
-                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6"/>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit" Height="Auto" Width="62">
+                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6" Height="28" Width="28"/>
                 </Button>
             </StackPanel>
+            <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,7,1141,9" Height="Auto" Click="Button_Logout_Click">
+                <materialDesign:PackIcon Kind="Logout" Foreground="#FF5C99D6" Width="33" Height="29"/>
+            </Button>
         </Grid>
         <Grid x:Name="Filters" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="500" RenderTransformOrigin="0.438,0.499" >
-            <Border MinWidth="400" Margin="-10,10,0,10" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="30" MaxWidth="400" CornerRadius="20" Height="635" Width="372">
+            <Border MinWidth="400" Margin="26,100,0,107" Background="#7F0039B2" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="30" MaxWidth="400" CornerRadius="20" Height="448" Width="372">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="White" ShadowDepth="0"/>
                 </Border.Effect>
                 <StackPanel Margin="-20,-20,-20,0">
-                    <Label Content="Фильтры" FontSize="30" FontWeight="Bold" Margin="32,10" Foreground="White"  HorizontalAlignment="Center">
+                    <Label Content="Фильтры" FontSize="30" FontWeight="Bold" Margin="118,0" Foreground="White"  HorizontalAlignment="Center">
                         <Label.Effect>
                             <DropShadowEffect BlurRadius="80" Color="White" ShadowDepth="0"/>
                         </Label.Effect>
                     </Label>
-                    <ComboBox x:Name="Country" Margin="20,10" Width="340" HorizontalAlignment="Center" FontSize="16" materialDesign:HintAssist.Hint="Страны" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontWeight="Bold">
-                        <ComboBoxItem>Россия</ComboBoxItem>
-                        <ComboBoxItem>США</ComboBoxItem>
-                        <ComboBoxItem>Великобритания</ComboBoxItem>
+                    <ComboBox x:Name="Country" Margin="20,0" Width="340" HorizontalAlignment="Center" FontSize="16" materialDesign:HintAssist.Hint="Страны" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontWeight="Bold" Background="#0019196B">
+                        <ComboBoxItem>
+                            <TextBlock Text="Россия"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Text="США" />
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Text="Великобритания" />
+                        </ComboBoxItem>
                     </ComboBox>
                     <ComboBox x:Name="Genres" Margin="20,10" FontWeight="Bold" Width="340" HorizontalAlignment="Center" FontSize="16" materialDesign:HintAssist.Hint="Жанры" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                        <ComboBoxItem>Ужасы</ComboBoxItem>
-                        <ComboBoxItem>Драма</ComboBoxItem>
-                        <ComboBoxItem>Фантастика</ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Text="Россия"/>
+                        </ComboBoxItem>
                     </ComboBox>
                     <TextBox  x:Name="Year" FontWeight="Bold" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Год выпуска" Width="340" FontSize="16" />
-                    <Label Content="Рейтинг" FontWeight="Bold" Margin="20 10" FontSize="16" />
+                    <Label Content="Рейтинг" FontWeight="Bold" Margin="15 10" FontSize="16" Foreground="#FF1E2B47"/>
                     <Slider x:Name="Ratio"  
                         Minimum="0" 
                         Maximum="10"
@@ -53,8 +62,8 @@
                         TickPlacement="BottomRight"
                         ValueChanged="Ratio_ValueChanged"
                         Style="{StaticResource MaterialDesignDiscreteHorizontalSlider}" Margin="20,0" Foreground="White"/>
-                    <Button  Content="Поиск" Background="MediumSlateBlue" Width="300" FontSize="16" Margin="0 10" />
-                    <Button  Content="Сброс" Style="{StaticResource MaterialDesignFlatMidBgButton}" Width="300" FontSize="16" Margin="0 10" Background="#FF88A1B6" Click="Button_Clear_Click" />
+                    <Button  Content="Поиск" Background="#FF00008F" Width="300" FontSize="16" Margin="0 20" />
+                    <Button  Content="Сброс" Style="{StaticResource MaterialDesignFlatMidBgButton}" Width="300" FontSize="16" Margin="40,0" Background="#FF13334D" Click="Button_Clear_Click" />
                 </StackPanel>
             </Border>
         </Grid>
@@ -74,27 +83,25 @@
         <Grid x:Name="Films" Height="469" VerticalAlignment="Bottom" Margin="515,0,10,100" >
             <Border  Margin="10,10,10,229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735" >
                 <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="White" ShadowDepth="0"/>
+                    <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
                 </Border.Effect>
                 <Image Source="567640.jpg" Width="184" HorizontalAlignment="Left" Margin="0,-20"/>
             </Border>
-            <Button Height="Auto" Margin="187,20,93,333" Background="{x:Null}" BorderBrush="{x:Null}"/>
             <Button x:Name="Favorite1" Foreground="Silver" Height="40" Margin="667,33,24,396" Width="64" Click="Button_Favorite1_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
             </Button>
             <Button Foreground="Black" Height="Auto" Margin="609,164,70,249" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
                 <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
             </Button>
-            <TextBlock x:Name="Film_Name1" Text="Мстители: Война бесконечности" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,33,88,333" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Film_Rate1" Text="7,9" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,167,18,249" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,33,88,333" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,167,18,249" TextWrapping="Wrap"/>
             <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,141,189,237" TextWrapping="Wrap"/>
             <Border  Margin="10,10,10,-229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735">
                 <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="White" ShadowDepth="0"/>
+                    <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
                 </Border.Effect>
                 <Image Source="6c27db1c-fe8e-4a45-a5fb-b7c3caefb6b3.jpg" Width="184" HorizontalAlignment="Left" Margin="0,-20"/>
             </Border>
-            <Button Height="Auto" Margin="187,20,93,333" Background="{x:Null}" BorderBrush="{x:Null}"/>
             <Button x:Name="Favorite2" Foreground="Silver" Height="40" Margin="667,265,24,164" Width="64" Click="Button_Favorite2_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
             </Button>
@@ -104,6 +111,11 @@
             <TextBlock x:Name="Film_Name2" Text="Игра в имитацию" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,265,88,151" TextWrapping="Wrap"/>
             <TextBlock x:Name="Film_Rate2" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,396,18,20" TextWrapping="Wrap"/>
             <TextBlock x:Name="Info2" Text="Жанр:Военный, Драма                         Режиссер: Мортен Тильдум" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,368,189,10" TextWrapping="Wrap"/>
+            <Button x:Name="SecondFilm" Height="Auto" Margin="187,252,93,101" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <Button x:Name="FirstFilm"  Height="Auto" Margin="187,20,93,333" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_FirstFilm_Click"/>
         </Grid>
+        <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1192,60,10,567">
+            <materialDesign:PackIcon Kind="BookAccount" Foreground="White" Height="57" Width="53" BorderBrush="#FF33414F" BorderThickness="3"/>
+        </Button>
     </Grid>
 </Window>

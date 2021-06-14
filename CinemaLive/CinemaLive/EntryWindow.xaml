@@ -8,18 +8,18 @@
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
         <Image Source="istock-614987504-front.jpg" HorizontalAlignment="Center" Width="1503" Margin="-109,10,-114,-141"/>
-        <Border MinWidth="400" Margin="0,0,26,24" Background="#7F2C2CF1" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="30" MaxWidth="550" CornerRadius="20" >
+        <Border MinWidth="400" Margin="0,188,26,221" Background="#803131B6" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="30" MaxWidth="550" CornerRadius="20" Height="311" >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="60" Color="DarkBlue" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
                 <Label Content="Вход" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="White">
                     <Label.Effect>
-                        <DropShadowEffect BlurRadius="80" Color="White" ShadowDepth="0"/>
+                        <DropShadowEffect BlurRadius="30" Color="#FFCDCDCD" ShadowDepth="0"/>
                     </Label.Effect>
                 </Label>
-                <TextBox x:Name="TextBox_Login" FontWeight="Bold" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="White" FontSize="14"/>
-                <PasswordBox  x:Name="PasswordBox_input" FontWeight="Bold" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="White" FontSize="14"/>
+                <TextBox x:Name="TextBox_Login" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="White" FontSize="14"/>
+                <PasswordBox  x:Name="PasswordBox_input" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Foreground="White" FontSize="14"/>
                 <Button Content="Войти" Margin="0 20" Background="MediumSlateBlue" Click="Button_Entry_Click" FontSize="16" />
                 <Grid>
                     <Button Content="Зарегистрироваться" Style="{StaticResource MaterialDesignFlatButton}" FontSize="16" Foreground="#FFB2D6F1" Click="Button_Reg_Click"/>
@@ -30,8 +30,8 @@
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="1280" Width="720"/>
         <Grid x:Name="shapka" Height="60" VerticalAlignment="Top" Background="#FF33414F">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit">
-                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6"/>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit" Height="Auto" Width="62">
+                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6" Height="28" Width="28"/>
                 </Button>
             </StackPanel>
         </Grid>

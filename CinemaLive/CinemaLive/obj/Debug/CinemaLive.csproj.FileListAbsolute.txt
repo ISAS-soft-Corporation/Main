@@ -24,3 +24,7 @@ Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug
 Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\EntryWindow.baml
 Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\Catalog.g.cs
 Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\Catalog.baml
+Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\FilmCard.g.cs
+Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\FilmCard.baml
+Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\Choise.g.cs
+Y:\Коллективная разработка\CinemaLive\CinemaLive\obj\Debug\Choise.baml
