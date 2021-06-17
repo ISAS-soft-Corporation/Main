@@ -20,10 +20,16 @@ namespace CinemaLive
     /// </summary>
     public partial class FilmCard : Window
     {
-        public FilmCard()
+        int user;
+        string login;
+        public FilmCard(int user, string login)
         {
             InitializeComponent();
             shapka.MouseLeftButtonDown += new MouseButtonEventHandler(layoutRoot_MouseLeftButtonDown);
+            this.user = user;
+            this.login = login;
+
+            Hello.Content += login;
         }
         private void Button_Favorite_Click(object sender, RoutedEventArgs e)
         {
@@ -40,13 +46,13 @@ namespace CinemaLive
 
         private void Back_Home_Click(object sender, RoutedEventArgs e)
         {
-            Catalog catalog = new Catalog();
+            Catalog catalog = new Catalog(user, login);
             catalog.Show();
             Hide();
         }
         private void Button_Choise_Click(object sender, RoutedEventArgs e)
         {
-            Choise choise = new Choise();
+            Choise choise = new Choise(user, login);
             choise.Show();
             Hide();
         }

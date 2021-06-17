@@ -9,7 +9,7 @@ namespace CinemaLive
 {
     class AppContext : DbContext
     {
-        public DbSet<User> users { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public AppContext() : base("DefaultConnection") { }
 

@@ -9,7 +9,7 @@ namespace CinemaLive
 {
     class User
     {
-        private int id { get; set; }
+        public int id { get; set; }
         private string login, password, email;
 
         public User() { }

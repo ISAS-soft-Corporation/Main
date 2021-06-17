@@ -25,6 +25,11 @@
             <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,7,1141,9" Height="Auto" Click="Button_Logout_Click">
                 <materialDesign:PackIcon Kind="Logout" Foreground="#FF5C99D6" Width="28" Height="28"/>
             </Button>
+            <Label Content="Привет, " FontSize="20" FontWeight="Bold" Margin="100,12,800,9" Foreground="White" Name="Hello">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="20" Color="#FFCDCDCD" ShadowDepth="0"/>
+                </Label.Effect>
+            </Label>
         </Grid>
         <Grid x:Name="Filters" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="500" RenderTransformOrigin="0.438,0.499" >
             <Border MinWidth="400" Margin="26,100,0,107" Background="#7F0039B2" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="30" MaxWidth="400" CornerRadius="20" Height="448" Width="372">

@@ -41,27 +41,45 @@ namespace CinemaLive
         }
         private void Button_Entry_Click(object sender, RoutedEventArgs e)
         {
+
             string login = TextBox_Login.Text.Trim();
             string pass_input = PasswordBox_input.Password.Trim();
-            if (login.Length < 5)
+
+            if (login.Length < 3)
             {
-                TextBox_Login.ToolTip = "Поле введено не корректно";
+                TextBox_Login.ToolTip = "Логин должен быть не меньше 3 символов";
                 TextBox_Login.Background = Brushes.Firebrick;
             }
             else if (pass_input.Length < 5)
             {
-                PasswordBox_input.ToolTip = "Поле введено не корректно";
+                PasswordBox_input.ToolTip = "Пароль должен быть не меньше 5 символов";
                 PasswordBox_input.Background = Brushes.Firebrick;
-            }          
+            }
             else
             {
                 TextBox_Login.ToolTip = "";
                 TextBox_Login.Background = Brushes.Transparent;
                 PasswordBox_input.ToolTip = "";
                 PasswordBox_input.Background = Brushes.Transparent;
-                Catalog catalog = new Catalog();
-                catalog.Show();
-                Hide();
+
+                User user = null;
+
+                using(AppContext mdb = new AppContext())
+                {
+                    user = mdb.Users.Where(s=>s.Login == login && s.Password == pass_input).FirstOrDefault();
+                }
+
+                if (user != null)
+                {
+                    MessageBox.Show("Вход выполнен успешно");
+                    Catalog catalog = new Catalog(user.id, user.Login);
+                    catalog.Show();
+                    Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Проверьте введенные данные");
+                }
             }
         }
     }

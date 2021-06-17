@@ -20,10 +20,13 @@ namespace CinemaLive
     /// </summary>
     public partial class MainWindow : Window
     {
+        AppContext mdb;
         public MainWindow()
         {
             InitializeComponent();
             shapka.MouseLeftButtonDown += new MouseButtonEventHandler(layoutRoot_MouseLeftButtonDown);
+
+            mdb = new AppContext();
         }
         private void exit(object sender, RoutedEventArgs e)
         {
@@ -36,44 +39,68 @@ namespace CinemaLive
 
         private void Button_Regist_Click(object sender, RoutedEventArgs e)
         {
+
+            List<User> users = mdb.Users.ToList();
+
             string login = TextBox_Login.Text.Trim();
             string pass_input = PasswordBox_input.Password.Trim();
             string pass_confirm = PasswordBox_confirm.Password.Trim();
             string email = TextBox_Email.Text.Trim();
-            if (login.Length<5)
+            if (login.Length < 3)
             {
-                TextBox_Login.ToolTip = "Поле введено не корректно";
+                TextBox_Login.ToolTip = "Логин должен быть не меньше 5 символов";
                 TextBox_Login.Background = Brushes.Firebrick;
             }
-            else if(pass_input.Length<5)
+            else if (pass_input.Length < 5)
             {
-                PasswordBox_input.ToolTip = "Поле введено не корректно";
+                PasswordBox_input.ToolTip = "Пароль должен быть не меньше 5 символов";
                 PasswordBox_input.Background = Brushes.Firebrick;
             }
-            else if( pass_input!= pass_confirm)
+            else if (pass_input != pass_confirm)
             {
-                PasswordBox_confirm.ToolTip = "Поле введено не корректно";
+                PasswordBox_confirm.ToolTip = "Пароли не совпадают";
                 PasswordBox_confirm.Background = Brushes.Firebrick;
             }
-            else if (email.Length<5|| !email.Contains("@") || !email.Contains("."))
+            else if (!email.Contains("@yandex.ru") && !email.Contains("@gmail.com"))
             {
-                TextBox_Email.ToolTip = "Поле введено не корректно";
+                TextBox_Email.ToolTip = "Такая почта существует?";
                 TextBox_Email.Background = Brushes.Firebrick;
             }
             else
             {
-                TextBox_Login.ToolTip = "";
-                TextBox_Login.Background = Brushes.Transparent;
-                PasswordBox_input.ToolTip = "";
-                PasswordBox_input.Background = Brushes.Transparent;
-                PasswordBox_confirm.ToolTip = "";
-                PasswordBox_confirm.Background = Brushes.Transparent;
-                TextBox_Email.ToolTip = "";
-                TextBox_Email.Background = Brushes.Transparent;
-                Succesful.Visibility = Visibility.Visible;
-            }
+                User userCheck = null;
+                using (AppContext mdb = new AppContext())
+                {
+                    userCheck = mdb.Users.Where(s => s.Login == login).FirstOrDefault();
+                }
+                if (userCheck != null)
+                {
+                    TextBox_Login.ToolTip = "Логин занят";
+                    TextBox_Login.Background = Brushes.Firebrick;
+                }
+                else
+                {
+                    TextBox_Login.ToolTip = "";
+                    TextBox_Login.Background = Brushes.Transparent;
+                    PasswordBox_input.ToolTip = "";
+                    PasswordBox_input.Background = Brushes.Transparent;
+                    PasswordBox_confirm.ToolTip = "";
+                    PasswordBox_confirm.Background = Brushes.Transparent;
+                    TextBox_Email.ToolTip = "";
+                    TextBox_Email.Background = Brushes.Transparent;
+                    Succesful.Visibility = Visibility.Visible;
 
-            
+                    User user = new User(login, pass_input, email);
+
+                    mdb.Users.Add(user);
+                    mdb.SaveChanges();
+                    MessageBox.Show("Регистрация прошла успешно");
+
+                    Catalog catalog = new Catalog(user.id, user.Login);
+                    catalog.Show();
+                    Hide();
+                }
+            }
         }
 
         private void Button_Entry_Click(object sender, RoutedEventArgs e)

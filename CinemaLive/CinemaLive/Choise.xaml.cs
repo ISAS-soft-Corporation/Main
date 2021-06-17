@@ -19,10 +19,16 @@ namespace CinemaLive
     /// </summary>
     public partial class Choise : Window
     {
-        public Choise()
+        int user;
+        string login;
+        public Choise(int user, string login)
         {
             InitializeComponent();
             shapka.MouseLeftButtonDown += new MouseButtonEventHandler(layoutRoot_MouseLeftButtonDown);
+            this.user = user;
+            this.login = login;
+
+            Hello.Content += login;
         }
         private void exit(object sender, RoutedEventArgs e)
         {
@@ -44,7 +50,7 @@ namespace CinemaLive
 
         private void Button_FirstFilm_Click(object sender, RoutedEventArgs e)
         {
-            FilmCard filmCard = new FilmCard();
+            FilmCard filmCard = new FilmCard(user, login);
             filmCard.Show();
             Hide();
         }
@@ -81,7 +87,7 @@ namespace CinemaLive
 
         private void Button_Theatres_Click(object sender, RoutedEventArgs e)
         {
-            Catalog catalog = new Catalog();
+            Catalog catalog = new Catalog(user, login);
             catalog.Show();
             Hide();
         }
