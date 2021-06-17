@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Image Source="mH6r0kUQL3OQKIEg7Rgxfo6thzh7Dn9j.jpg"  HorizontalAlignment="Center" Width="1931" Margin="-323,30,-328,-122"/>
+        <Image Source="BackImages/CatalogBack.jpg"  HorizontalAlignment="Center" Width="1931" Margin="-323,30,-328,-122"/>
         <Grid Height="90" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="-281,75,0,0" Width="1473">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="317,27,488,27" Width="988">
                 <TextBox  x:Name="Search" materialDesign:HintAssist.Hint="ПОИСК ПО ФИЛЬМАМ" Foreground="White" Width="600" FontSize="20" Background="#FF596A7A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-2,0,0,0" />

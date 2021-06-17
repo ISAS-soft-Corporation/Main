@@ -1,0 +1,29 @@
+﻿<Window x:Class="CinemaLive.Message"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaLive"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid Margin="0,-46,-118,-55">
+        <Image Source="BackImages/MessageBack.jpg" HorizontalAlignment="Center" Width="516" Margin="-13,-30,115,-55"/>
+        <TextBlock 
+            FontSize="14" FontWeight="Bold" Margin="293,114,161,159" Foreground="Black" Name="Mess" 
+                   TextWrapping="Wrap" TextAlignment="Center">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FFCDCDCD" ShadowDepth="0"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Grid x:Name="shapka" Height="54" VerticalAlignment="Top" Background="#FF33414F" Margin="0,40,115,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10.4,0" RenderTransformOrigin="0.547,1.128">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit" Height="Auto" Width="62">
+                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6" Height="28" Width="28"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Button Background="#FF33414F" BorderBrush="{x:Null}" Click="exit" Height="50" Width="80" Margin="356,278,182,73">
+            <materialDesign:PackIcon Kind="HandOkay" Foreground="#32CD32" Height="28" Width="28"/>
+        </Button>
+    </Grid>
+</Window>

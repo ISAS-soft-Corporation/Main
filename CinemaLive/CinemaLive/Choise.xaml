@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Image Source="06-1.jpg" HorizontalAlignment="Center" Width="1503" Margin="-223,-29,0,-102"/>
+        <Image Source="BackImages/CatalogBack.jpg" HorizontalAlignment="Center" Width="1503" Margin="-223,-29,0,-102"/>
         <Grid x:Name="shapka" Height="60" VerticalAlignment="Top" Background="#FF33414F">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit" Height="Auto" Width="62">

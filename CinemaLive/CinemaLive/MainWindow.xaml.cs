@@ -39,21 +39,18 @@ namespace CinemaLive
 
         private void Button_Regist_Click(object sender, RoutedEventArgs e)
         {
-
-            List<User> users = mdb.Users.ToList();
-
             string login = TextBox_Login.Text.Trim();
             string pass_input = PasswordBox_input.Password.Trim();
             string pass_confirm = PasswordBox_confirm.Password.Trim();
             string email = TextBox_Email.Text.Trim();
-            if (login.Length < 3)
+            if (login.Length < 3 || login.Length > 12)
             {
-                TextBox_Login.ToolTip = "Логин должен быть не меньше 5 символов";
+                TextBox_Login.ToolTip = "Логин должен быть не меньше 5 символов и не больше 12";
                 TextBox_Login.Background = Brushes.Firebrick;
             }
-            else if (pass_input.Length < 5)
+            else if (pass_input.Length < 5 || pass_input.Length > 15)
             {
-                PasswordBox_input.ToolTip = "Пароль должен быть не меньше 5 символов";
+                PasswordBox_input.ToolTip = "Пароль должен быть не меньше 5 символов и больше 15";
                 PasswordBox_input.Background = Brushes.Firebrick;
             }
             else if (pass_input != pass_confirm)
@@ -61,9 +58,9 @@ namespace CinemaLive
                 PasswordBox_confirm.ToolTip = "Пароли не совпадают";
                 PasswordBox_confirm.Background = Brushes.Firebrick;
             }
-            else if (!email.Contains("@yandex.ru") && !email.Contains("@gmail.com"))
+            else if (email.Length < 5 || email.Length > 15 || !email.Contains("@") || !email.Contains("."))
             {
-                TextBox_Email.ToolTip = "Такая почта существует?";
+                TextBox_Email.ToolTip = "Почта имеет неверный формат";
                 TextBox_Email.Background = Brushes.Firebrick;
             }
             else
@@ -94,7 +91,9 @@ namespace CinemaLive
 
                     mdb.Users.Add(user);
                     mdb.SaveChanges();
-                    MessageBox.Show("Регистрация прошла успешно");
+
+                    Message mess = new Message("Регистрация прошла успешно");
+                    mess.ShowDialog();
 
                     Catalog catalog = new Catalog(user.id, user.Login);
                     catalog.Show();

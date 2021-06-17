@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Image Source="istock-614987504-front.jpg" HorizontalAlignment="Center" Width="1503" Margin="-109,10,-114,-141"/>
+        <Image Source="BackImages/EntryBack.jpg" HorizontalAlignment="Center" Width="1503" Margin="-109,10,-114,-141"/>
         <Border MinWidth="400" Margin="0,133,26,190" Background="#803131B6" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="30" MaxWidth="550" CornerRadius="20" Height="397">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="60" Color="DarkBlue" ShadowDepth="0"/>

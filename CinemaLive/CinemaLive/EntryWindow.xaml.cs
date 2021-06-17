@@ -45,14 +45,14 @@ namespace CinemaLive
             string login = TextBox_Login.Text.Trim();
             string pass_input = PasswordBox_input.Password.Trim();
 
-            if (login.Length < 3)
+            if (login.Length < 3 || login.Length > 12)
             {
-                TextBox_Login.ToolTip = "Логин должен быть не меньше 3 символов";
+                TextBox_Login.ToolTip = "Логин должен быть не меньше 5 символов и не больше 12";
                 TextBox_Login.Background = Brushes.Firebrick;
             }
-            else if (pass_input.Length < 5)
+            else if (pass_input.Length < 5 || pass_input.Length > 15)
             {
-                PasswordBox_input.ToolTip = "Пароль должен быть не меньше 5 символов";
+                PasswordBox_input.ToolTip = "Пароль должен быть не меньше 5 символов и больше 15";
                 PasswordBox_input.Background = Brushes.Firebrick;
             }
             else
@@ -71,14 +71,16 @@ namespace CinemaLive
 
                 if (user != null)
                 {
-                    MessageBox.Show("Вход выполнен успешно");
+                    Message mess = new Message("Вход выполнен успешно");
+                    mess.ShowDialog();
                     Catalog catalog = new Catalog(user.id, user.Login);
                     catalog.Show();
                     Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Проверьте введенные данные");
+                    Message mess = new Message("Проверьте введенные данные");
+                    mess.ShowDialog();
                 }
             }
         }
