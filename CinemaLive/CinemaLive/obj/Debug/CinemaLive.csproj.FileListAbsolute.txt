@@ -39,3 +39,4 @@ C:\Users\HP\Desktop\New folder\Предметы 2 курс\Методы колл
 C:\Users\HP\Desktop\New folder\Предметы 2 курс\Методы коллективной разработки\Проект\Main\CinemaLive\CinemaLive\obj\Debug\CinemaLive.csproj.CopyComplete
 C:\Users\HP\Desktop\New folder\Предметы 2 курс\Методы коллективной разработки\Проект\Main\CinemaLive\CinemaLive\obj\Debug\CinemaLive.exe
 C:\Users\HP\Desktop\New folder\Предметы 2 курс\Методы коллективной разработки\Проект\Main\CinemaLive\CinemaLive\obj\Debug\CinemaLive.pdb
+C:\Users\HP\Desktop\New folder\Предметы 2 курс\Методы коллективной разработки\Проект\Main\CinemaLive\CinemaLive\obj\Debug\CinemaLive.Resource1.resources

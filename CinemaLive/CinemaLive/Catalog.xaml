@@ -25,7 +25,8 @@
             <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,7,1141,9" Height="Auto" Click="Button_Logout_Click">
                 <materialDesign:PackIcon Kind="Logout" Foreground="#FF5C99D6" Width="28" Height="28"/>
             </Button>
-            <Label Content="Привет, " FontSize="20" FontWeight="Bold" Margin="100,12,800,9" Foreground="White" Name="Hello">
+            <Label Content="Привет, " FontSize="20" FontWeight="Bold" Margin="100,12,800,9" Foreground="White" 
+                   Name="Hello" MouseDoubleClick="Button_Choise_Click">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="20" Color="#FFCDCDCD" ShadowDepth="0"/>
                 </Label.Effect>

@@ -12,7 +12,7 @@
             FontSize="14" FontWeight="Bold" Margin="293,114,161,159" Foreground="Black" Name="Mess" 
                    TextWrapping="Wrap" TextAlignment="Center">
             <TextBlock.Effect>
-                <DropShadowEffect BlurRadius="20" Color="#FFCDCDCD" ShadowDepth="0"/>
+                <DropShadowEffect BlurRadius="20" Color="#000000" ShadowDepth="0"/>
             </TextBlock.Effect>
         </TextBlock>
         <Grid x:Name="shapka" Height="54" VerticalAlignment="Top" Background="#FF33414F" Margin="0,40,115,0">

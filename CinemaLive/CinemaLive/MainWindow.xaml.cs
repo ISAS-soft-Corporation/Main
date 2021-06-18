@@ -26,6 +26,7 @@ namespace CinemaLive
             InitializeComponent();
             shapka.MouseLeftButtonDown += new MouseButtonEventHandler(layoutRoot_MouseLeftButtonDown);
 
+
             mdb = new AppContext();
         }
         private void exit(object sender, RoutedEventArgs e)
