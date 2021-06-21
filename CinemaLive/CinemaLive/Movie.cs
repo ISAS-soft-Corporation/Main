@@ -8,12 +8,14 @@ namespace CinemaLive
 {
     class Movie
     {
-        public int m_id { get; set; }
+        public int MovieId { get; set; }
         private string m_name;
         private float m_rating;
         private int m_year;
         private string m_desc, m_country, m_image, m_trailer;
         private int m_g;
+
+        public Movie() { }
 
         public Movie(string m_name, float m_rating, int m_year, string m_desc, 
             string m_country, string m_image, string m_trailer, int m_g)

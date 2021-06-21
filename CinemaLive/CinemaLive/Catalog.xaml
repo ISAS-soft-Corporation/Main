@@ -87,11 +87,11 @@
             <TextBox  x:Name="List" FontWeight="Bold" materialDesign:HintAssist.Hint="Страница" Text="1" Style="{StaticResource MaterialDesignOutlinedTextBox}"  Background="White" FontSize="16" Margin="94,7,95,29"/>
         </Grid>
         <Grid x:Name="Films" Height="469" VerticalAlignment="Bottom" Margin="515,0,10,100" >
-            <Border  Margin="10,10,10,229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735" >
+            <Border  Name ="Film1" Margin="10,10,10,229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735" >
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
                 </Border.Effect>
-                <Image Source="567640.jpg" Width="184" HorizontalAlignment="Left" Margin="0,-20"/>
+                <Image Source="567640.jpg" Width="184" HorizontalAlignment="Left" Margin="0,-20" Name ="Image1"/>
             </Border>
             <Button x:Name="Favorite1" Foreground="Silver" Height="40" Margin="667,33,24,396" Width="64" Click="Button_Favorite1_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
@@ -102,11 +102,12 @@
             <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,33,88,333" TextWrapping="Wrap"/>
             <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,167,18,249" TextWrapping="Wrap"/>
             <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,141,189,237" TextWrapping="Wrap"/>
-            <Border  Margin="10,10,10,-229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735">
+            <Border Name="Film2" Margin="10,10,10,-229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
                 </Border.Effect>
-                <Image Source="6c27db1c-fe8e-4a45-a5fb-b7c3caefb6b3.jpg" Width="184" HorizontalAlignment="Left" Margin="0,-20"/>
+                <Image Source="6c27db1c-fe8e-4a45-a5fb-b7c3caefb6b3.jpg" Width="184" HorizontalAlignment="Left" 
+                       Margin="0,-20" Name ="Image2"/>
             </Border>
             <Button x:Name="Favorite2" Foreground="Silver" Height="40" Margin="667,265,24,164" Width="64" Click="Button_Favorite2_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>

@@ -8,13 +8,27 @@ namespace CinemaLive
 {
     class Casting
     {
-        public int m_id { get; set; }
-        public int p_id { get; set; }
+        public int CastingId { get; set; }
+        private int m_id, p_id;
         private string p_role;
 
-        public Casting(string p_role)
+        public Casting() { }
+
+        public Casting(int m_id, int p_id, string p_role)
         {
+            this.m_id = m_id;
+            this.p_id = p_id;
             this.p_role = p_role;
+        }
+        public int M_id
+        {
+            get { return m_id; }
+            set { m_id = value; }
+        }
+        public int P_id
+        {
+            get { return p_id; }
+            set { p_id = value; }
         }
         public string P_role
         {

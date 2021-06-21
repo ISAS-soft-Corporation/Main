@@ -21,6 +21,8 @@ namespace CinemaLive
     {
         int user;
         string login;
+        
+        
         public Catalog(int user, string login)
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace CinemaLive
             this.login = login;
 
             Hello.Content += login;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

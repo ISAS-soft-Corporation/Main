@@ -8,8 +8,11 @@ namespace CinemaLive
 {
     class WishList
     {
-        public int w_id { get; set; }
+        public int WishListId { get; set; }
         private int u_id, m_id;
+
+        public WishList() { }
+
         public WishList(int u_id, int m_id)
         {
             this.u_id = u_id;

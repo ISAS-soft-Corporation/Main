@@ -73,7 +73,7 @@ namespace CinemaLive
                 {
                     Message mess = new Message("Вход выполнен успешно");
                     mess.ShowDialog();
-                    Catalog catalog = new Catalog(user.id, user.Login);
+                    Catalog catalog = new Catalog(user.Id, user.Login);
                     catalog.Show();
                     Hide();
                 }
