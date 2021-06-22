@@ -101,7 +101,7 @@
             </Button>
             <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,33,88,333" TextWrapping="Wrap"/>
             <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,167,18,249" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,141,189,237" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="188,70,187,249" TextWrapping="Wrap"/>
             <Border Name="Film2" Margin="10,10,10,-229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
@@ -117,9 +117,9 @@
             </Button>
             <TextBlock x:Name="Film_Name2" Text="Игра в имитацию" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,265,88,151" TextWrapping="Wrap"/>
             <TextBlock x:Name="Film_Rate2" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,396,18,20" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Info2" Text="Жанр:Военный, Драма                         Режиссер: Мортен Тильдум" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,368,189,10" TextWrapping="Wrap"/>
-            <Button x:Name="SecondFilm" Height="Auto" Margin="187,252,93,101" Background="{x:Null}" BorderBrush="{x:Null}"/>
-            <Button x:Name="FirstFilm"  Height="Auto" Margin="187,20,93,333" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_FirstFilm_Click"/>
+            <TextBlock x:Name="Info2" Text="Жанр:Военный, Драма                         Режиссер: Мортен Тильдум" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,299,188,22" TextWrapping="Wrap"/>
+            <Button x:Name="SecondFilm" Height="Auto" Margin="187,252,93,151" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <Button x:Name="FirstFilm"  Height="Auto" Margin="187,20,93,380" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_FirstFilm_Click"/>
         </Grid>
         <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1192,60,10,567">
             <materialDesign:PackIcon Kind="BookAccount" Foreground="White" Height="57" Width="53" BorderBrush="#FF33414F" BorderThickness="3"/>

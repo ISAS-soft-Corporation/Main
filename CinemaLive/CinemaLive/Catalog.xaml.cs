@@ -44,7 +44,6 @@ namespace CinemaLive
             persons = mdb.People.ToList();
             // Вывод первых двух фильмов
             mainOutput(0, 1);
-
         }
 
         public void mainOutput(int index1, int index2)
@@ -92,6 +91,18 @@ namespace CinemaLive
                         else if (c_film2.P_id == p.PersonId)
                             Info2.Text += p.P_name;
                     }
+                }
+                try
+                {
+                    string desc1 = movies[index1].M_desc;
+                    string desc2 = movies[index2].M_desc;
+                    Info1.Text += "\n\n" + desc1.Remove(70, desc1.Length - 71) + "...";
+                    Info2.Text += "\n\n" + desc2.Remove(70, desc2.Length - 71) + "...";
+                }
+                catch(Exception e)
+                {
+                    Message mes = new Message(e.Message);
+                    mes.ShowDialog();
                 }
             }
         }
