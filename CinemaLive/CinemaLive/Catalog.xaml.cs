@@ -118,7 +118,7 @@ namespace CinemaLive
                 {
                     if (g.GenreId == movies[index1].M_g)
                         Info1.Text = "Жанр: " + g.G_name;
-                    else if (g.GenreId == movies[index2].M_g)
+                    if (g.GenreId == movies[index2].M_g)
                         Info2.Text = "Жанр: " + g.G_name;
                 }
                 Info1.Text += "\nРежиссер: ";
