@@ -71,8 +71,6 @@ namespace CinemaLive
 
                 if (user != null)
                 {
-                    Message mess = new Message("Вход выполнен успешно");
-                    mess.ShowDialog();
                     Catalog catalog = new Catalog(user.Id, user.Login);
                     catalog.Show();
                     Hide();

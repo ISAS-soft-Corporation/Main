@@ -59,7 +59,7 @@ namespace CinemaLive
                 PasswordBox_confirm.ToolTip = "Пароли не совпадают";
                 PasswordBox_confirm.Background = Brushes.Firebrick;
             }
-            else if (email.Length < 5 || email.Length > 15 || !email.Contains("@") || !email.Contains("."))
+            else if (email.Length < 5 || email.Length > 150 || !email.Contains("@") || !email.Contains("."))
             {
                 TextBox_Email.ToolTip = "Почта имеет неверный формат";
                 TextBox_Email.Background = Brushes.Firebrick;
