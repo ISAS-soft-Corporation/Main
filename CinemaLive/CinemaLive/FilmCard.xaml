@@ -29,7 +29,7 @@
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
                 </Border.Effect>
-                <Image Source="567640.jpg" Width="264" HorizontalAlignment="Left" Margin="-1,-106,0,66"/>
+                <Image Source="567640.jpg" Width="264" HorizontalAlignment="Left" Margin="-1,-106,0,66" Name="Poster"/>
             </Border>
             <Label Content="В избранное" HorizontalAlignment="Left" Height="54" Margin="909,125,0,0" VerticalAlignment="Top" Width="187" FontSize="30" Foreground="White"/>
             <Button x:Name="Favorite" Foreground="Silver" Height="Auto" Margin="1071,126,117,537" Click="Button_Favorite_Click" BorderBrush="{x:Null}" Background="{x:Null}">
@@ -41,7 +41,7 @@
             <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="358,126,436,501" TextWrapping="Wrap"/>
             <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="800,225,422,446" TextWrapping="Wrap"/>
             <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="358,219,553,441" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5"/>
-            <TextBlock x:Name="About" FontSize ="20" Foreground="White" Text="Оставшиеся в живых члены команды Мстителей и их союзники должны разработать новый план, который поможет противостоять разрушительным действиям могущественного титана Таноса. После наиболее масштабной и трагической битвы в истории они не могут допустить ошибку. " TextWrapping="Wrap" Margin="358,284,127,211"/>
+            <TextBlock x:Name="About" FontSize ="20" Foreground="White" Text="Оставшиеся в живых члены команды Мстителей и их союзники должны разработать новый план, который поможет противостоять разрушительным действиям могущественного титана Таноса. После наиболее масштабной и трагической битвы в истории они не могут допустить ошибку. " TextWrapping="Wrap" Margin="358,284,127,144"/>
             <Button x:Name="Back" Foreground="White" Height="Auto" Margin="58,624,1121,32" Click="Back_Home_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Home" Height="37" Width="45"/>
             </Button>
@@ -49,8 +49,11 @@
         <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1122,617,80,10">
             <materialDesign:PackIcon Kind="BookAccount" Foreground="White" Height="57" Width="53" BorderBrush="#FF33414F" BorderThickness="3"/>
         </Button>
-        <TextBlock Margin="358,532,582,137">
-            <Hyperlink Click="Hyperlink_Click"  Foreground="White" FontSize="25">Ссылка на просмотр фильма</Hyperlink>
+        <TextBlock Margin="358,635,582,34">
+            <Hyperlink Click="Watch"  Foreground="White" FontSize="25">Ссылка на просмотр фильма</Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="358,590,582,90">
+            <Hyperlink Click="Trailer"  Foreground="White" FontSize="25">Ссылка на трейлер</Hyperlink>
         </TextBlock>
     </Grid>
 </Window>

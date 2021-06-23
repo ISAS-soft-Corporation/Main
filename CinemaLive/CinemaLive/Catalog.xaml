@@ -118,7 +118,7 @@
             <TextBlock x:Name="Film_Name2" Text="Игра в имитацию" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,265,88,151" TextWrapping="Wrap"/>
             <TextBlock x:Name="Film_Rate2" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,396,18,20" TextWrapping="Wrap"/>
             <TextBlock x:Name="Info2" Text="Жанр:Военный, Драма                         Режиссер: Мортен Тильдум" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,368,189,10" TextWrapping="Wrap"/>
-            <Button x:Name="SecondFilm" Height="Auto" Margin="187,252,93,101" Background="{x:Null}" BorderBrush="{x:Null}"/>
+            <Button x:Name="SecondFilm" Height="Auto" Margin="187,252,93,101" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_SecondFilm_Click"/>
             <Button x:Name="FirstFilm"  Height="Auto" Margin="187,20,93,333" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_FirstFilm_Click"/>
         </Grid>
         <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1192,60,10,567">

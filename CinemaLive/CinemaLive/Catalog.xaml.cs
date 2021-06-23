@@ -21,8 +21,12 @@ namespace CinemaLive
     {
         int user;
         string login;
-        
-        
+        AppContext mdb;
+        List<Genre> genres;
+        List<Movie> movies;
+        List<Casting> castings;
+        List<Person> persons;
+
         public Catalog(int user, string login)
         {
             InitializeComponent();
@@ -32,7 +36,98 @@ namespace CinemaLive
 
             Hello.Content += login;
 
+            mdb = new AppContext();
+
+            genres = mdb.Genres.ToList();
+            movies = mdb.Movies.ToList();
+            castings = mdb.Castings.ToList();
+            persons = mdb.People.ToList();
+
+            mainOutput(0, 1);
+
         }
+
+        public void mainOutput(int index1, int index2)
+        {
+            if (index2 - index1 == 1)
+            {
+                System.Windows.Media.Imaging.BitmapImage bit =
+                new BitmapImage(new Uri(movies[index1].M_image, UriKind.Absolute));
+                Image1.Source = bit;
+                bit = new BitmapImage(new Uri(movies[index2].M_image, UriKind.Absolute));
+                Image2.Source = bit;
+
+                Film_Name1.Text = movies[index1].M_name;
+                Film_Name2.Text = movies[index2].M_name;
+                Film_Rate1.Text = movies[index1].M_rating.ToString();
+                Film_Rate2.Text = movies[index2].M_rating.ToString();
+                foreach (Genre g in genres)
+                {
+                    if (g.GenreId == movies[index1].M_g)
+                        Info1.Text = "Жанр: " + g.G_name;
+                    else if (g.GenreId == movies[index2].M_g)
+                        Info2.Text = "Жанр: " + g.G_name;
+                }
+                Info1.Text += "\nРежиссер: ";
+                Info2.Text += "\nРежиссер: ";
+                Casting c_film1 = null, c_film2 = null;
+                // Поиск режиссера
+                foreach (Casting c in castings)
+                {
+                    if (c.M_id == movies[index1].MovieId && c.P_role == "Режиссер")
+                    {
+                        c_film1 = c;
+                    }
+                    else if (c.M_id == movies[index2].MovieId && c.P_role == "Режиссер")
+                    {
+                        c_film2 = c;
+                    }
+                }
+                if (c_film1 != null && c_film2 != null)
+                {
+                    foreach (Person p in persons)
+                    {
+                        if (c_film1.P_id == p.PersonId)
+                            Info1.Text += p.P_name;
+                        else if (c_film2.P_id == p.PersonId)
+                            Info2.Text += p.P_name;
+                    }
+                }
+            }
+            else
+            {
+                System.Windows.Media.Imaging.BitmapImage bit =
+                new BitmapImage(new Uri(movies[index1].M_image, UriKind.Absolute));
+                Image1.Source = bit;
+
+                Film_Name1.Text = movies[index1].M_name;
+                Film_Rate1.Text = movies[index1].M_rating.ToString();
+                foreach (Genre g in genres)
+                {
+                    if (g.GenreId == movies[index1].M_g)
+                        Info1.Text = "Жанр: " + g.G_name;
+                }
+                Info1.Text += "\nРежиссер: ";
+                Casting c_film1 = null;
+                // Поиск режиссера
+                foreach (Casting c in castings)
+                {
+                    if (c.M_id == movies[index1].MovieId && c.P_role == "Режиссер")
+                    {
+                        c_film1 = c;
+                    }
+                }
+                if (c_film1 != null)
+                {
+                    foreach (Person p in persons)
+                    {
+                        if (c_film1.P_id == p.PersonId)
+                            Info1.Text += p.P_name;
+                    }
+                }
+            }
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -86,7 +181,16 @@ namespace CinemaLive
 
         private void Button_FirstFilm_Click(object sender, RoutedEventArgs e)
         {
-            FilmCard filmCard = new FilmCard(user, login);
+            string film = Film_Name1.Text;
+            FilmCard filmCard = new FilmCard(user, login, film);
+            filmCard.Show();
+            Hide();
+            
+        }
+        private void Button_SecondFilm_Click(object sender, RoutedEventArgs e)
+        {
+            string film = Film_Name2.Text;
+            FilmCard filmCard = new FilmCard(user, login, film);
             filmCard.Show();
             Hide();
         }
