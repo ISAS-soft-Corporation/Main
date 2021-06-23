@@ -50,9 +50,11 @@ namespace CinemaLive
 
         private void Button_FirstFilm_Click(object sender, RoutedEventArgs e)
         {
+            /*
             FilmCard filmCard = new FilmCard(user, login);
             filmCard.Show();
             Hide();
+            */
         }
 
         private void Button_Logout_Click(object sender, RoutedEventArgs e)

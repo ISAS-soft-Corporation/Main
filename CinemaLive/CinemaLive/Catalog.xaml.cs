@@ -108,7 +108,8 @@ namespace CinemaLive
                 Image1.Source = bit;
                 bit = new BitmapImage(new Uri(movies[index2].M_image, UriKind.Absolute));
                 Image2.Source = bit;
-
+                Info1.Text = "";
+                Info2.Text = "";
                 Film_Name1.Text = movies[index1].M_name;
                 Film_Name2.Text = movies[index2].M_name;
                 Film_Rate1.Text = movies[index1].M_rating.ToString();
@@ -314,7 +315,16 @@ namespace CinemaLive
 
         private void Button_FirstFilm_Click(object sender, RoutedEventArgs e)
         {
-            FilmCard filmCard = new FilmCard(user, login);
+            string film = Film_Name1.Text;
+            FilmCard filmCard = new FilmCard(user, login, film);
+            filmCard.Show();
+            Hide();
+
+        }
+        private void Button_SecondFilm_Click(object sender, RoutedEventArgs e)
+        {
+            string film = Film_Name2.Text;
+            FilmCard filmCard = new FilmCard(user, login, film);
             filmCard.Show();
             Hide();
         }
