@@ -75,16 +75,19 @@
         </Grid>
         <Grid x:Name="Navigation" Height="95" VerticalAlignment="Bottom" Margin="976,0,0,0" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
-                <Button Background="#FF3E586C" BorderBrush="#FF2196F3" Foreground="#FF2196F3" Height="Auto" Margin="0,10,0,31" Width="69" Click="Button_Next_Click">
+                <Button Background="#FF3E586C" BorderBrush="#FF2196F3" Foreground="#FF2196F3" Height="Auto" Margin="0,10,0,31"
+                        Width="69" Click="Button_Next_Click">
                     <materialDesign:PackIcon Kind="NavigateNext" Foreground="White" Height="36" Width="36"/>
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10 0" >
-                <Button Background="#FF3E586C" BorderBrush="#FF2196F3" Foreground="#FF2196F3" Height="Auto" Margin="0,10,0,31" Width="69" Click="Button_Back_Click">
+                <Button Background="#FF3E586C" BorderBrush="#FF2196F3" Foreground="#FF2196F3" Height="Auto" 
+                        Margin="0,10,0,31" Width="69" Click="Button_Back_Click">
                     <materialDesign:PackIcon Kind="NavigateBefore" Foreground="White" Height="36" Width="36"/>
                 </Button>
             </StackPanel>
-            <TextBox  x:Name="List" FontWeight="Bold" materialDesign:HintAssist.Hint="Страница" Text="1" Style="{StaticResource MaterialDesignOutlinedTextBox}"  Background="White" FontSize="16" Margin="94,7,95,29"/>
+            <TextBox  x:Name="List" FontWeight="Bold" PreviewTextInput="List_PreviewTextInput" KeyUp="PageChanged"  PreviewKeyDown="List_KeyDown" 
+                      Text="1" Style="{StaticResource MaterialDesignOutlinedTextBox}"  Background="White" FontSize="16" Margin="94,0,95,29" Height="59" VerticalAlignment="Bottom"/>
         </Grid>
         <Grid x:Name="Films" Height="469" VerticalAlignment="Bottom" Margin="515,0,10,100" >
             <Border  Name ="Film1" Margin="10,10,10,229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735" >
