@@ -100,14 +100,34 @@ namespace CinemaLive
                 {
                     About.Text += "актер: " + persons[i].P_name + ", роль: " + p_role + "; ";
                 }
-                
             }
+
+            WishList wishList1 = null;
+            int m_id1 = movie.MovieId;
+            wishList1 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id1).FirstOrDefault();
+            if (wishList1 != null) Favorite.Foreground = Brushes.Red;
+            else Favorite.Foreground = Brushes.Silver;
         }
 
         private void Button_Favorite_Click(object sender, RoutedEventArgs e)
         {
-            Favorite.Foreground = Brushes.Red;
+            WishList wishList = null;
+            wishList = mdb.WishLists.Where(s => s.U_id == user && s.M_id == movie.MovieId).FirstOrDefault();
+            if (wishList != null)
+            {
+                mdb.WishLists.Remove(wishList);
+                mdb.SaveChanges();
+                Favorite.Foreground = Brushes.Silver;
+            }
+            else
+            {
+                wishList = new WishList(user, movie.MovieId);
+                mdb.WishLists.Add(wishList);
+                mdb.SaveChanges();
+                Favorite.Foreground = Brushes.Red;
+            }
         }
+
         private void exit(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
@@ -136,7 +156,7 @@ namespace CinemaLive
         }
         private void Watch(object sender, RoutedEventArgs e)
         {
-            //Process.Start(movie.M_watch); 
+            Process.Start(movie.M_watch); 
         }
 
         private void Button_Logout_Click(object sender, RoutedEventArgs e)

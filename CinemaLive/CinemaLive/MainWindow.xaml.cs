@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace CinemaLive
 {
@@ -44,6 +45,8 @@ namespace CinemaLive
             string pass_input = PasswordBox_input.Password.Trim();
             string pass_confirm = PasswordBox_confirm.Password.Trim();
             string email = TextBox_Email.Text.Trim();
+            string emailPattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+            bool isItEmail = Regex.IsMatch(email, emailPattern);
             if (login.Length < 3 || login.Length > 12)
             {
                 TextBox_Login.ToolTip = "Логин должен быть не меньше 5 символов и не больше 12";
@@ -59,7 +62,7 @@ namespace CinemaLive
                 PasswordBox_confirm.ToolTip = "Пароли не совпадают";
                 PasswordBox_confirm.Background = Brushes.Firebrick;
             }
-            else if (email.Length < 5 || email.Length > 150 || !email.Contains("@") || !email.Contains("."))
+            else if (email.Length < 5 || email.Length > 150 || !isItEmail)
             {
                 TextBox_Email.ToolTip = "Почта имеет неверный формат";
                 TextBox_Email.Background = Brushes.Firebrick;

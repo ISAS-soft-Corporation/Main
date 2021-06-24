@@ -150,6 +150,15 @@ namespace CinemaLive
                 string desc2 = movies[index2].M_desc;
                 Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
                 Info2.Text += "\n" + desc2.Remove(70, desc2.Length - 71) + "...";
+                WishList wishList1 = null, wishList2 = null;
+                int m_id1 = movies[index1].MovieId;
+                int m_id2 = movies[index2].MovieId;
+                wishList1 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id1).FirstOrDefault();
+                wishList2 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id2).FirstOrDefault();
+                if (wishList1 != null) Favorite1.Foreground = Brushes.Red;
+                else Favorite1.Foreground = Brushes.Silver;
+                if (wishList2 != null) Favorite2.Foreground = Brushes.Red;
+                else Favorite2.Foreground = Brushes.Silver;
                 VisibilityFilm2(true);
             }
             else
@@ -185,6 +194,11 @@ namespace CinemaLive
                 }
                 string desc1 = movies[index1].M_desc;
                 Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
+                WishList wishList1 = null;
+                int m_id1 = movies[index1].MovieId;
+                wishList1 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id1).FirstOrDefault();
+                if (wishList1 != null) Favorite1.Foreground = Brushes.Red;
+                else Favorite1.Foreground = Brushes.Silver;
                 VisibilityFilm2(false);
             }
         }
@@ -199,6 +213,7 @@ namespace CinemaLive
                 Favorite2.Visibility = Visibility.Hidden;
                 Film_Name2.Visibility = Visibility.Hidden;
                 Film_Rate2.Visibility = Visibility.Hidden;
+                rate2.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -208,6 +223,7 @@ namespace CinemaLive
                 Favorite2.Visibility = Visibility.Visible;
                 Film_Name2.Visibility = Visibility.Visible;
                 Film_Rate2.Visibility = Visibility.Visible;
+                rate2.Visibility = Visibility.Visible;
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -280,12 +296,60 @@ namespace CinemaLive
 
         private void Button_Favorite1_Click(object sender, RoutedEventArgs e)
         {
-            Favorite1.Foreground = Brushes.Red;
+            int m_id = -1;
+            foreach (Movie movie in movies)
+            {
+                if(movie.M_name == Film_Name1.Text)
+                {
+                    m_id = movie.MovieId;
+                    break;
+                }
+            }
+            WishList wishList = null;
+            wishList = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id).FirstOrDefault();
+            if (wishList != null)
+            {
+                mdb.WishLists.Remove(wishList);
+                mdb.SaveChanges();
+                Favorite1.Foreground = Brushes.Silver;
+            }
+            else
+            {
+                wishList = new WishList(user, m_id);
+                mdb.WishLists.Add(wishList);
+                mdb.SaveChanges();
+                Favorite1.Foreground = Brushes.Red;
+            }
+            
         }
 
         private void Button_Favorite2_Click(object sender, RoutedEventArgs e)
         {
-            Favorite2.Foreground = Brushes.Red;
+            int m_id = -1;
+            foreach (Movie movie in movies)
+            {
+                if (movie.M_name == Film_Name2.Text)
+                {
+                    m_id = movie.MovieId;
+                    break;
+                }
+            }
+            WishList wishList = null;
+            wishList = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id).FirstOrDefault();
+            if (wishList != null)
+            {
+                mdb.WishLists.Remove(wishList);
+                mdb.SaveChanges();
+                Favorite2.Foreground = Brushes.Silver;
+            }
+            else
+            {
+                wishList = new WishList(user, m_id);
+                mdb.WishLists.Add(wishList);
+                mdb.SaveChanges();
+                Favorite2.Foreground = Brushes.Red;
+            }
+
         }
 
         private void Button_Clear_Click(object sender, RoutedEventArgs e)
@@ -294,6 +358,7 @@ namespace CinemaLive
             Genres.SelectedIndex = -1;
             Year.Text = "";
             Ratio.Value = -1;
+            Search.Text = "";
             genres = mdb.Genres.ToList();
             movies = mdb.Movies.ToList();
             castings = mdb.Castings.ToList();
@@ -431,7 +496,27 @@ namespace CinemaLive
 
         private void SearchFilm(object sender, RoutedEventArgs e)
         {
-            if(movies.Count < 100) movies = mdb.Movies.ToList();
+            List<WishList> wishLists = null;
+            if (checkFavourites.IsChecked == true)
+            {
+                wishLists = mdb.WishLists.Where(s => s.U_id == user).ToList();
+                if (wishLists != null)
+                {
+                    movies = null;
+                    movies = new List<Movie>();
+                    foreach (WishList wishList in wishLists)
+                    {
+                        movies.Add(mdb.Movies.Where(s => s.MovieId == wishList.M_id).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    Message mess = new Message("У вас нет фильмов в избранных. Рузультаты представлены из общего списка");
+                    mess.ShowDialog();
+                    checkFavourites.IsChecked = false;
+                }
+            }
+            else if(movies.Count < 100) movies = mdb.Movies.ToList();
             string film = Search.Text;
             string country;
             if (Country.Text != null) country = Country.Text;
@@ -904,6 +989,73 @@ namespace CinemaLive
                 Message mess = new Message("По вашему запросу фильмов не найдено(");
                 mess.ShowDialog();
             }
+        }
+
+        private void checkFavourites_Checked(object sender, RoutedEventArgs e)
+        {
+            List<WishList> wishLists = null;
+            wishLists = mdb.WishLists.Where(s => s.U_id == user).ToList();
+            if (wishLists != null && wishLists.Count > 0)
+            {
+                movies = null;
+                movies = new List<Movie>();
+                foreach (WishList wishList in wishLists)
+                {
+                    movies.Add(mdb.Movies.Where(s => s.MovieId == wishList.M_id).FirstOrDefault());
+                }
+                int all_movs = movies.Count();
+                if (all_movs % 2 == 0)
+                {
+                    pages = movies.Count() / 2;
+                }
+                else
+                {
+                    pages = movies.Count() / 2 + 1;
+                }
+                MaterialDesignThemes.Wpf.HintAssist.SetHint(List, "Стр.(/" + pages.ToString() + ")");
+                // Вывод первых фильмов
+                if (movies.Count > 1)
+                {
+                    mainOutput(0, 1);
+                }
+                else
+                {
+                    mainOutput(0, 0);
+                }
+            }
+            else
+            {
+                Message mess = new Message("У вас нет фильмов в избранных. Рузультаты представлены из общего списка");
+                mess.ShowDialog();
+                checkFavourites.IsChecked = false;
+            }
+        }
+
+        private void checkFavourites_Unchecked(object sender, RoutedEventArgs e)
+        {
+            movies = mdb.Movies.ToList();
+            Country.SelectedIndex = -1;
+            Genres.SelectedIndex = -1;
+            Year.Text = "";
+            Ratio.Value = -1;
+            Search.Text = "";
+            genres = mdb.Genres.ToList();
+            movies = mdb.Movies.ToList();
+            castings = mdb.Castings.ToList();
+            persons = mdb.People.ToList();
+
+            int all_movs = movies.Count();
+            if (all_movs % 2 == 0)
+            {
+                pages = movies.Count() / 2;
+            }
+            else
+            {
+                pages = movies.Count() / 2 + 1;
+            }
+            MaterialDesignThemes.Wpf.HintAssist.SetHint(List, "Стр.(/" + pages.ToString() + ")");
+            // Вывод первых двух фильмов
+            mainOutput(0, 1);
         }
     }
 }
