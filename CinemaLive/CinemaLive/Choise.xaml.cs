@@ -501,40 +501,43 @@ namespace CinemaLive
 
         private void PageChanged(object sender, KeyEventArgs e)
         {
-            if (List.Text != "" && int.TryParse(List.Text, out int number))
+            if (List.Text != "")
             {
-                int NumberList = int.Parse(List.Text);
-                if (NumberList >= 1 && NumberList < pages)
+                if (int.TryParse(List.Text, out int number))
                 {
-                    NumberList *= 3;
-                    mainOutput(NumberList - 3, NumberList - 1);
-                }
-                else if (NumberList == pages)
-                {
-                    if (movies.Count % 3 == 2)
-                    {
-                        NumberList *= 3;
-                        mainOutput(NumberList - 3, NumberList - 2);
-                    }
-                    else if (movies.Count % 3 == 1)
-                    {
-                        NumberList *= 3;
-                        mainOutput(NumberList - 3, NumberList - 3);
-                    }
-                    else
+                    int NumberList = int.Parse(List.Text);
+                    if (NumberList >= 1 && NumberList < pages)
                     {
                         NumberList *= 3;
                         mainOutput(NumberList - 3, NumberList - 1);
+                    }
+                    else if (NumberList == pages)
+                    {
+                        if (movies.Count % 3 == 2)
+                        {
+                            NumberList *= 3;
+                            mainOutput(NumberList - 3, NumberList - 2);
+                        }
+                        else if (movies.Count % 3 == 1)
+                        {
+                            NumberList *= 3;
+                            mainOutput(NumberList - 3, NumberList - 3);
+                        }
+                        else
+                        {
+                            NumberList *= 3;
+                            mainOutput(NumberList - 3, NumberList - 1);
+                        }
+                    }
+                    else
+                    {
+                        this.List.Text = "1";
                     }
                 }
                 else
                 {
                     this.List.Text = "1";
                 }
-            }
-            else
-            {
-                this.List.Text = "1";
             }
         }
 
@@ -551,6 +554,32 @@ namespace CinemaLive
             else
             {
                 e.Handled = true;
+            }
+        }
+
+        private void List_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (List.Text != "")
+            {
+                int NumberList = int.Parse(List.Text);
+                if (NumberList * 10 + int.Parse(e.Text) > pages)
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (e.Text == "0")
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+        private void List_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (List.Text == "")
+            {
+                this.List.Text = "1";
             }
         }
     }

@@ -42,7 +42,8 @@
                     <materialDesign:PackIcon Kind="NavigateBefore" Foreground="White" Height="36" Width="36"/>
                 </Button>
             </StackPanel>
-            <TextBox  x:Name="List" FontWeight="Bold" materialDesign:HintAssist.Hint="Страница" Text="1" Style="{StaticResource MaterialDesignOutlinedTextBox}"  Background="White" FontSize="16" Margin="94,7,95,29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox  x:Name="List" FontWeight="Bold" materialDesign:HintAssist.Hint="Страница" Text="1" Style="{StaticResource MaterialDesignOutlinedTextBox}"  
+                      PreviewTextInput="List_PreviewTextInput" PreviewKeyDown="List_KeyDown"  LostFocus="List_LostFocus"  KeyUp="PageChanged" Background="White" FontSize="16" Margin="94,7,95,29" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
         <Grid x:Name="Films" Height="650" VerticalAlignment="Bottom" Margin="10,0,309,10">
             <Border Name ="Film2"  Margin="30,222,31,228" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="200" Width="900" >
