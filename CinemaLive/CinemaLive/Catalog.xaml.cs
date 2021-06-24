@@ -226,10 +226,6 @@ namespace CinemaLive
                 rate2.Visibility = Visibility.Visible;
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         void layoutRoot_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -396,9 +392,11 @@ namespace CinemaLive
 
         private void Button_Logout_Click(object sender, RoutedEventArgs e)
         {
+            Message mess = new Message("Вы уверены что хотите выйти?");
+            mess.ShowDialog();
             EntryWindow entryWindow = new EntryWindow();
             entryWindow.Show();
-            Hide();
+            Hide();                          
         }
 
         private void Button_Choise_Click(object sender, RoutedEventArgs e)

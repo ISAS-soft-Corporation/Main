@@ -7,34 +7,43 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Image Source="BackImages/CatalogBack.jpg"  HorizontalAlignment="Center" Width="1931" Margin="-323,30,-328,-122"/>
+        <Image Source="MessageBack.jpg"  HorizontalAlignment="Center" Width="1931" Margin="-323,30,-328,-122"/>
         <Grid Height="90" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Margin="-281,75,0,0" Width="1473">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="317,27,488,27" Width="988">
-                <TextBox  x:Name="Search" materialDesign:HintAssist.Hint="ПОИСК ПО ФИЛЬМАМ" Foreground="White" Width="600" FontSize="20" Background="#FF596A7A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-2,0,0,0" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="438*"/>
+                <ColumnDefinition Width="53*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="317,27,0,27" Width="988">
+                <TextBox  x:Name="Search" materialDesign:HintAssist.Hint="  ПОИСК ПО ФИЛЬМАМ" Foreground="White" Width="600" FontSize="20" Background="#FF596A7A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-2,0,0,0" />
                 <Button Background="#FF3E586C" BorderBrush="#FF2196F3" Foreground="#FF2196F3" Height="36" Click="SearchFilm">
-                    <materialDesign:PackIcon Kind="Magnify" Foreground="#FF2196F3"  Height="25" VerticalAlignment="Center" Margin="5"/>
+                    <materialDesign:PackIcon Kind="Magnify" Foreground="#FF2196F3"  Height="28"  Width="23" VerticalAlignment="Center" Margin="5"/>
                 </Button>
             </StackPanel>
-            <CheckBox Margin="1000,20,180,30" x:Name="checkFavourites" TextBlock.FontWeight="Bold" Background="#FF3E586C"
+            <CheckBox Margin="1047,22,1,22" x:Name="checkFavourites" TextBlock.FontWeight="Bold" Background="White"
                       Foreground="White" Checked="checkFavourites_Checked" Unchecked="checkFavourites_Unchecked"
-                      TextBlock.FontFamily="Yu Gothic UI Semibold"
-                      TextBlock.FontSize="15" IsChecked="False" Content="Только избранные" Width="266" Height="37" >
+                      TextBlock.FontFamily="Yu Gothic UI Semibold" 
+                      TextBlock.FontSize="15" IsChecked="False" Content="Только избранные" Width="266" OpacityMask="White" >
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
                 </CheckBox.LayoutTransform>
             </CheckBox>
         </Grid>
         <Grid x:Name="shapka" Height="60" VerticalAlignment="Top" Background="#FF33414F">
+            <Label Content="Каталог" FontSize="24" FontWeight="Bold" Margin="615,10,557,10" Foreground="White" Name="Choise" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="108">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="20" Color="#FFCDCDCD" ShadowDepth="0"/>
+                </Label.Effect>
+            </Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit" Height="Auto" Width="62">
-                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6" Height="28" Width="28"/>
+                    <materialDesign:PackIcon Kind="Close" Foreground="#FF5C99D6" Height="28" Width="28"/>
                 </Button>
             </StackPanel>
-            <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,7,1141,9" Height="Auto" Click="Button_Logout_Click">
+            <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Height="60" Width="60" Margin="74,0,1146,0"  Click="Button_Logout_Click">
                 <materialDesign:PackIcon Kind="Logout" Foreground="#FF5C99D6" Width="28" Height="28"/>
             </Button>
-            <Label Content="Привет, " FontSize="20" FontWeight="Bold" Margin="100,12,800,9" Foreground="White" 
-                   Name="Hello" MouseDoubleClick="Button_Choise_Click">
+            <Label Content="Привет, " FontSize="20" FontWeight="Bold" Margin="134,11,766,10" Foreground="White" 
+                   Name="Hello" MouseDoubleClick="Button_Choise_Click" HorizontalAlignment="Left">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="20" Color="#FFCDCDCD" ShadowDepth="0"/>
                 </Label.Effect>
@@ -67,7 +76,7 @@
                         TickFrequency="0.1"
                         TickPlacement="BottomRight"
                         ValueChanged="Ratio_ValueChanged"
-                        Style="{StaticResource MaterialDesignDiscreteHorizontalSlider}" Margin="20,0" Foreground="White"/>
+                        Style="{StaticResource MaterialDesignDiscreteHorizontalSlider}" Margin="22,3" Foreground="White"/>
                     <Button  Content="Поиск" Background="#FF00008F" Width="300" FontSize="16" Margin="0 20" Click="SearchFilm" />
                     <Button  Content="Сброс" Style="{StaticResource MaterialDesignFlatMidBgButton}" Width="300" FontSize="16" Margin="40,0" Background="#FF13334D" Click="Button_Clear_Click" />
                 </StackPanel>
@@ -99,12 +108,12 @@
             <Button x:Name="Favorite1" Foreground="Silver" Height="40" Margin="667,33,24,396" Width="64" Click="Button_Favorite1_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
             </Button>
-            <Button Name ="rate1" Foreground="Black" Height="Auto" Margin="609,164,70,249" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+            <Button Name ="rate1" Foreground="Black" Height="Auto" Margin="603,164,76,249" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
                 <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
             </Button>
-            <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,33,88,333" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,167,18,249" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="188,106,187,249" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,33,88,310" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="680,167,24,249" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,167,188,251" TextWrapping="Wrap"/>
             <Border Name="Film2" Margin="10,10,10,-229" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="210" Width="735">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
@@ -115,14 +124,14 @@
             <Button x:Name="Favorite2" Foreground="Silver" Height="40" Margin="667,265,24,164" Width="64" Click="Button_Favorite2_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
             </Button>
-            <Button Name ="rate2" Foreground="Black" Height="Auto" Margin="609,391,70,22" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+            <Button Name ="rate2" Foreground="Black" Height="Auto" Margin="603,389,76,24" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
                 <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
             </Button>
-            <TextBlock x:Name="Film_Name2" Text="Игра в имитацию" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,265,88,151" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Film_Rate2" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="686,396,18,20" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Info2" Text="Жанр:Военный, Драма                         Режиссер: Мортен Тильдум" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="187,332,188,22" TextWrapping="Wrap"/>
-            <Button x:Name="SecondFilm" Height="Auto" Margin="187,252,93,101" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_SecondFilm_Click"/>
-            <Button x:Name="FirstFilm"  Height="Auto" Margin="187,20,93,333" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_FirstFilm_Click"/>
+            <TextBlock x:Name="Film_Name2" Text="Игра в имитацию" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,265,88,80" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Rate2" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="680,394,24,22" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Info2" Text="Жанр:Военный, Драма                         Режиссер: Мортен Тильдум" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="188,401,187,22" TextWrapping="Wrap"/>
+            <Button x:Name="SecondFilm" Height="Auto" Margin="187,252,93,73" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_SecondFilm_Click"/>
+            <Button x:Name="FirstFilm"  Height="Auto" Margin="187,20,93,305" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_FirstFilm_Click"/>
         </Grid>
         <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1192,60,10,567">
             <materialDesign:PackIcon Kind="BookAccount" Foreground="White" Height="57" Width="53" BorderBrush="#FF33414F" BorderThickness="3"/>

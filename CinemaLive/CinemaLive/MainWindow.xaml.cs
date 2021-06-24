@@ -89,16 +89,11 @@ namespace CinemaLive
                     PasswordBox_confirm.Background = Brushes.Transparent;
                     TextBox_Email.ToolTip = "";
                     TextBox_Email.Background = Brushes.Transparent;
-                    Succesful.Visibility = Visibility.Visible;
 
                     User user = new User(login, pass_input, email);
 
                     mdb.Users.Add(user);
                     mdb.SaveChanges();
-
-                    Message mess = new Message("Регистрация прошла успешно");
-                    mess.ShowDialog();
-
                     Catalog catalog = new Catalog(user.Id, user.Login);
                     catalog.Show();
                     Hide();

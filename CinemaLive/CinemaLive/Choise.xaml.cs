@@ -89,8 +89,8 @@ namespace CinemaLive
 
         private void VisibilityFilms23(int vis)
         {
-            // 1 - прятаем фильм 2
-            // 2 - прятаем фильм 3
+            // 1 - прячем фильм 2
+            // 2 - прячем фильм 3
             // 3 - показываем фильм 2
             // 4 - показываем фильм 3
             if (vis == 1)
@@ -275,7 +275,7 @@ namespace CinemaLive
                 else Favorite1.Foreground = Brushes.Silver;
                 if (wishList2 != null) Favorite2.Foreground = Brushes.Red;
                 else Favorite2.Foreground = Brushes.Silver;
-                VisibilityFilms23(2); // 2 - прятаем фильм 3
+                VisibilityFilms23(2); // 2 - прячем фильм 3
                 VisibilityFilms23(3); // 3 - показываем фильм 2
             }
             else
@@ -316,8 +316,8 @@ namespace CinemaLive
                 wishList1 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id1).FirstOrDefault();
                 if (wishList1 != null) Favorite1.Foreground = Brushes.Red;
                 else Favorite1.Foreground = Brushes.Silver;
-                VisibilityFilms23(1); // 1 - прятаем фильм 2
-                VisibilityFilms23(2); // 2 - прятаем фильм 3
+                VisibilityFilms23(1); // 1 - прячем фильм 2
+                VisibilityFilms23(2); // 2 - прячем фильм 3
             }
         }
 

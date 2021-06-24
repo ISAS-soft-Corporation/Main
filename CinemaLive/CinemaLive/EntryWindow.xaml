@@ -8,12 +8,13 @@
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
         <Image Source="BackImages/EntryBack.jpg" HorizontalAlignment="Center" Width="1503" Margin="-109,10,-114,-141" Name="back"/>
-        <Border MinWidth="400" Margin="0,188,26,221" Background="#803131B6" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="30" MaxWidth="550" CornerRadius="20" Height="311" >
+        <Image Source="logo.png" HorizontalAlignment="Center" Width="1503" Margin="10,10,-233,-141" Name="ack"/>
+        <Border MinWidth="400" Margin="0,314,50,100" Background="#803131B6" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="30" MaxWidth="550" CornerRadius="20" Height="311" >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="60" Color="DarkBlue" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <Label Content="Вход" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="White">
+                <Label Content=" Вход" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" Foreground="White">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="30" Color="#FFCDCDCD" ShadowDepth="0"/>
                     </Label.Effect>
@@ -31,7 +32,7 @@
         <Grid x:Name="shapka" Height="60" VerticalAlignment="Top" Background="#FF33414F">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit" Height="Auto" Width="62">
-                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6" Height="28" Width="28"/>
+                    <materialDesign:PackIcon Kind="Close" Foreground="#FF5C99D6" Height="28" Width="28"/>
                 </Button>
             </StackPanel>
         </Grid>
