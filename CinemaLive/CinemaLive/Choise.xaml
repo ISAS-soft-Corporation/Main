@@ -49,7 +49,7 @@
             <Button x:Name="Favorite2" Foreground="Red" Height="40" Margin="839,232,58,378" Width="64" Click="Button_Favorite2_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
             </Button>
-            <Button Foreground="Black" Height="Auto" Margin="770,348,122,239" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+            <Button Name ="rate2" Foreground="Black" Height="Auto" Margin="770,348,122,239" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
                 <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50" RenderTransformOrigin="0.303,0.439"/>
             </Button>
             <TextBlock x:Name="Film_Name2" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,240,218,323" TextWrapping="Wrap"/>
@@ -64,7 +64,7 @@
             <Button x:Name="Favorite3" Foreground="Red" Height="40" Margin="842,446,55,164" Width="64" Click="Button_Favorite3_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
             </Button>
-            <Button Foreground="Black" Height="Auto" Margin="770,562,111,28" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+            <Button Name ="rate3" Foreground="Black" Height="Auto" Margin="770,562,111,28" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
                 <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
             </Button>
             <TextBlock x:Name="Film_Name3" Text="Игра в имитацию" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="182,446,93,78" TextWrapping="Wrap"/>
@@ -79,7 +79,7 @@
             <Button x:Name="Favorite1" Foreground="Red" Height="40" Margin="839,33,58,577" Width="64" Click="Button_Favorite1_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="36" Width="33"/>
             </Button>
-            <Button Foreground="Black" Height="Auto" Margin="770,143,114,456" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+            <Button Name ="rate1" Foreground="Black" Height="Auto" Margin="770,143,114,456" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
                 <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
             </Button>
             <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="187,33,202,535" TextWrapping="Wrap"/>

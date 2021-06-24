@@ -150,6 +150,15 @@ namespace CinemaLive
                 string desc2 = movies[index2].M_desc;
                 Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
                 Info2.Text += "\n" + desc2.Remove(70, desc2.Length - 71) + "...";
+                WishList wishList1 = null, wishList2 = null;
+                int m_id1 = movies[index1].MovieId;
+                int m_id2 = movies[index2].MovieId;
+                wishList1 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id1).FirstOrDefault();
+                wishList2 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id2).FirstOrDefault();
+                if (wishList1 != null) Favorite1.Foreground = Brushes.Red;
+                else Favorite1.Foreground = Brushes.Silver;
+                if (wishList2 != null) Favorite2.Foreground = Brushes.Red;
+                else Favorite2.Foreground = Brushes.Silver;
                 VisibilityFilm2(true);
             }
             else
@@ -185,6 +194,11 @@ namespace CinemaLive
                 }
                 string desc1 = movies[index1].M_desc;
                 Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
+                WishList wishList1 = null;
+                int m_id1 = movies[index1].MovieId;
+                wishList1 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id1).FirstOrDefault();
+                if (wishList1 != null) Favorite1.Foreground = Brushes.Red;
+                else Favorite1.Foreground = Brushes.Silver;
                 VisibilityFilm2(false);
             }
         }
@@ -280,12 +294,60 @@ namespace CinemaLive
 
         private void Button_Favorite1_Click(object sender, RoutedEventArgs e)
         {
-            Favorite1.Foreground = Brushes.Red;
+            int m_id = -1;
+            foreach (Movie movie in movies)
+            {
+                if(movie.M_name == Film_Name1.Text)
+                {
+                    m_id = movie.MovieId;
+                    break;
+                }
+            }
+            WishList wishList = null;
+            wishList = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id).FirstOrDefault();
+            if (wishList != null)
+            {
+                mdb.WishLists.Remove(wishList);
+                mdb.SaveChanges();
+                Favorite1.Foreground = Brushes.Silver;
+            }
+            else
+            {
+                wishList = new WishList(user, m_id);
+                mdb.WishLists.Add(wishList);
+                mdb.SaveChanges();
+                Favorite1.Foreground = Brushes.Red;
+            }
+            
         }
 
         private void Button_Favorite2_Click(object sender, RoutedEventArgs e)
         {
-            Favorite2.Foreground = Brushes.Red;
+            int m_id = -1;
+            foreach (Movie movie in movies)
+            {
+                if (movie.M_name == Film_Name2.Text)
+                {
+                    m_id = movie.MovieId;
+                    break;
+                }
+            }
+            WishList wishList = null;
+            wishList = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id).FirstOrDefault();
+            if (wishList != null)
+            {
+                mdb.WishLists.Remove(wishList);
+                mdb.SaveChanges();
+                Favorite2.Foreground = Brushes.Silver;
+            }
+            else
+            {
+                wishList = new WishList(user, m_id);
+                mdb.WishLists.Add(wishList);
+                mdb.SaveChanges();
+                Favorite2.Foreground = Brushes.Red;
+            }
+
         }
 
         private void Button_Clear_Click(object sender, RoutedEventArgs e)
