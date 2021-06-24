@@ -35,6 +35,7 @@ namespace CinemaLive
             shapka.MouseLeftButtonDown += new MouseButtonEventHandler(layoutRoot_MouseLeftButtonDown);
             this.user = user;
             this.login = login;
+            Hello.Content += login;
             mdb = new AppContext();
             persons = new List<Person>();
             movies = new List<Movie>();
@@ -60,7 +61,6 @@ namespace CinemaLive
                     persons.Add(mdb.People.Where(s => s.PersonId == casting.P_id).FirstOrDefault());
                 }
 
-                Hello.Content += login;
                 int all_movs = movies.Count();
                 if (all_movs % 3 == 0)
                 {
@@ -76,6 +76,7 @@ namespace CinemaLive
                     if (all_movs % 3 == 2) mainOutput(0, 1);
                     else if (all_movs % 3 == 1) mainOutput(0, 0);
                 }
+                
                 else mainOutput(0, 2);
             }
             else
@@ -199,7 +200,7 @@ namespace CinemaLive
                 string desc3 = movies[index3].M_desc;
                 Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
                 Info2.Text += "\n" + desc2.Remove(70, desc2.Length - 71) + "...";
-                Info3.Text += "\n" + desc2.Remove(70, desc3.Length - 71) + "...";
+                Info3.Text += "\n" + desc3.Remove(70, desc3.Length - 71) + "...";
                 WishList wishList1 = null, wishList2 = null, wishList3 = null;
                 int m_id1 = movies[index1].MovieId;
                 int m_id2 = movies[index3-1].MovieId;
@@ -216,7 +217,7 @@ namespace CinemaLive
                 VisibilityFilms23(3); // 3 - показываем фильм 2                                     
                 VisibilityFilms23(4); // 4 - показываем фильм 3
             }
-            else if (index3 - index1 == 2)
+            else if (index3 - index1 == 1)
             {
                 System.Windows.Media.Imaging.BitmapImage bit =
                 new BitmapImage(new Uri(movies[index1].M_image, UriKind.Absolute));

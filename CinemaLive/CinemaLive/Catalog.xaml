@@ -15,6 +15,14 @@
                     <materialDesign:PackIcon Kind="Magnify" Foreground="#FF2196F3"  Height="25" VerticalAlignment="Center" Margin="5"/>
                 </Button>
             </StackPanel>
+            <CheckBox Margin="1000,20,180,30" x:Name="checkFavourites" TextBlock.FontWeight="Bold" Background="#FF3E586C"
+                      Foreground="White" Checked="checkFavourites_Checked" Unchecked="checkFavourites_Unchecked"
+                      TextBlock.FontFamily="Yu Gothic UI Semibold"
+                      TextBlock.FontSize="15" IsChecked="False" Content="Только избранные" Width="266" Height="37" >
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
         </Grid>
         <Grid x:Name="shapka" Height="60" VerticalAlignment="Top" Background="#FF33414F">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
@@ -44,10 +52,10 @@
                         </Label.Effect>
                     </Label>
                     <ComboBox x:Name="Country" Margin="20,0" Width="340" HorizontalAlignment="Center" FontSize="16" materialDesign:HintAssist.Hint="Страны" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontWeight="Bold" Background="#0019196B">
-                        
+
                     </ComboBox>
                     <ComboBox x:Name="Genres" Margin="20,10" FontWeight="Bold" Width="340" HorizontalAlignment="Center" FontSize="16" materialDesign:HintAssist.Hint="Жанры" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                        
+
                     </ComboBox>
                     <ComboBox x:Name="Year" Margin="20,10" FontWeight="Bold" Width="340" HorizontalAlignment="Center" FontSize="16" materialDesign:HintAssist.Hint="Год выпуска" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
 

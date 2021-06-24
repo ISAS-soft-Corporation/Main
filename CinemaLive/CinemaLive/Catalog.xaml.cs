@@ -213,6 +213,7 @@ namespace CinemaLive
                 Favorite2.Visibility = Visibility.Hidden;
                 Film_Name2.Visibility = Visibility.Hidden;
                 Film_Rate2.Visibility = Visibility.Hidden;
+                rate2.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -222,6 +223,7 @@ namespace CinemaLive
                 Favorite2.Visibility = Visibility.Visible;
                 Film_Name2.Visibility = Visibility.Visible;
                 Film_Rate2.Visibility = Visibility.Visible;
+                rate2.Visibility = Visibility.Visible;
             }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -356,6 +358,7 @@ namespace CinemaLive
             Genres.SelectedIndex = -1;
             Year.Text = "";
             Ratio.Value = -1;
+            Search.Text = "";
             genres = mdb.Genres.ToList();
             movies = mdb.Movies.ToList();
             castings = mdb.Castings.ToList();
@@ -493,7 +496,27 @@ namespace CinemaLive
 
         private void SearchFilm(object sender, RoutedEventArgs e)
         {
-            if(movies.Count < 100) movies = mdb.Movies.ToList();
+            List<WishList> wishLists = null;
+            if (checkFavourites.IsChecked == true)
+            {
+                wishLists = mdb.WishLists.Where(s => s.U_id == user).ToList();
+                if (wishLists != null)
+                {
+                    movies = null;
+                    movies = new List<Movie>();
+                    foreach (WishList wishList in wishLists)
+                    {
+                        movies.Add(mdb.Movies.Where(s => s.MovieId == wishList.M_id).FirstOrDefault());
+                    }
+                }
+                else
+                {
+                    Message mess = new Message("У вас нет фильмов в избранных. Рузультаты представлены из общего списка");
+                    mess.ShowDialog();
+                    checkFavourites.IsChecked = false;
+                }
+            }
+            else if(movies.Count < 100) movies = mdb.Movies.ToList();
             string film = Search.Text;
             string country;
             if (Country.Text != null) country = Country.Text;
@@ -966,6 +989,73 @@ namespace CinemaLive
                 Message mess = new Message("По вашему запросу фильмов не найдено(");
                 mess.ShowDialog();
             }
+        }
+
+        private void checkFavourites_Checked(object sender, RoutedEventArgs e)
+        {
+            List<WishList> wishLists = null;
+            wishLists = mdb.WishLists.Where(s => s.U_id == user).ToList();
+            if (wishLists != null && wishLists.Count > 0)
+            {
+                movies = null;
+                movies = new List<Movie>();
+                foreach (WishList wishList in wishLists)
+                {
+                    movies.Add(mdb.Movies.Where(s => s.MovieId == wishList.M_id).FirstOrDefault());
+                }
+                int all_movs = movies.Count();
+                if (all_movs % 2 == 0)
+                {
+                    pages = movies.Count() / 2;
+                }
+                else
+                {
+                    pages = movies.Count() / 2 + 1;
+                }
+                MaterialDesignThemes.Wpf.HintAssist.SetHint(List, "Стр.(/" + pages.ToString() + ")");
+                // Вывод первых фильмов
+                if (movies.Count > 1)
+                {
+                    mainOutput(0, 1);
+                }
+                else
+                {
+                    mainOutput(0, 0);
+                }
+            }
+            else
+            {
+                Message mess = new Message("У вас нет фильмов в избранных. Рузультаты представлены из общего списка");
+                mess.ShowDialog();
+                checkFavourites.IsChecked = false;
+            }
+        }
+
+        private void checkFavourites_Unchecked(object sender, RoutedEventArgs e)
+        {
+            movies = mdb.Movies.ToList();
+            Country.SelectedIndex = -1;
+            Genres.SelectedIndex = -1;
+            Year.Text = "";
+            Ratio.Value = -1;
+            Search.Text = "";
+            genres = mdb.Genres.ToList();
+            movies = mdb.Movies.ToList();
+            castings = mdb.Castings.ToList();
+            persons = mdb.People.ToList();
+
+            int all_movs = movies.Count();
+            if (all_movs % 2 == 0)
+            {
+                pages = movies.Count() / 2;
+            }
+            else
+            {
+                pages = movies.Count() / 2 + 1;
+            }
+            MaterialDesignThemes.Wpf.HintAssist.SetHint(List, "Стр.(/" + pages.ToString() + ")");
+            // Вывод первых двух фильмов
+            mainOutput(0, 1);
         }
     }
 }
