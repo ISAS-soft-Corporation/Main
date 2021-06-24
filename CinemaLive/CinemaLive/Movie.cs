@@ -12,13 +12,13 @@ namespace CinemaLive
         private string m_name;
         private float m_rating;
         private int m_year;
-        private string m_desc, m_country, m_image, m_trailer;
+        private string m_desc, m_country, m_image, m_trailer, m_watch;
         private int m_g;
 
         public Movie() { }
 
         public Movie(string m_name, float m_rating, int m_year, string m_desc, 
-            string m_country, string m_image, string m_trailer, int m_g)
+            string m_country, string m_image, string m_trailer, int m_g, string m_watch)
         {
             this.m_rating = m_rating;
             this.m_name = m_name;
@@ -69,6 +69,11 @@ namespace CinemaLive
         {
             get { return m_g; }
             set { m_g = value; }
+        }
+        public string M_watch
+        {
+            get { return m_watch; }
+            set { m_watch = value; }
         }
 
     }

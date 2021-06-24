@@ -136,7 +136,7 @@ namespace CinemaLive
         }
         private void Watch(object sender, RoutedEventArgs e)
         {
-            //Process.Start(movie.M_watch); 
+            Process.Start(movie.M_watch); 
         }
 
         private void Button_Logout_Click(object sender, RoutedEventArgs e)
