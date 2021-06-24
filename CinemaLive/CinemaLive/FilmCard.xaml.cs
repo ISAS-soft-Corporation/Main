@@ -86,7 +86,7 @@ namespace CinemaLive
             {
                 foreach (Casting c in castings)
                 {
-                    if (c.P_id == persons[i].PersonId && c.P_role != "Режиссер")
+                    if (c.P_id == persons[i].PersonId && c.P_role != "Режиссер" && c.M_id == movie.MovieId)
                     {
                         p_role = c.P_role;
                         break;
@@ -139,15 +139,16 @@ namespace CinemaLive
 
         private void Back_Home_Click(object sender, RoutedEventArgs e)
         {
+            
             Catalog catalog = new Catalog(user, login);
             catalog.Show();
-            Hide();
+            Close();
         }
         private void Button_Choise_Click(object sender, RoutedEventArgs e)
         {
             Choise choise = new Choise(user, login);
             choise.Show();
-            Hide();
+            Close();
         }
 
         private void Trailer(object sender, RoutedEventArgs e)
@@ -161,9 +162,10 @@ namespace CinemaLive
 
         private void Button_Logout_Click(object sender, RoutedEventArgs e)
         {
-            EntryWindow entryWindow = new EntryWindow();
-            entryWindow.Show();
             Hide();
+            Confirm confirm = new Confirm();
+            confirm.ShowDialog();
+            ShowDialog();
         }
     }
 }

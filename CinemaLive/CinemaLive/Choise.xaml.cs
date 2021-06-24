@@ -195,12 +195,6 @@ namespace CinemaLive
                             Info3.Text += p.P_name;
                     }
                 }
-                string desc1 = movies[index1].M_desc;
-                string desc2 = movies[index3-1].M_desc;
-                string desc3 = movies[index3].M_desc;
-                Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
-                Info2.Text += "\n" + desc2.Remove(70, desc2.Length - 71) + "...";
-                Info3.Text += "\n" + desc3.Remove(70, desc3.Length - 71) + "...";
                 WishList wishList1 = null, wishList2 = null, wishList3 = null;
                 int m_id1 = movies[index1].MovieId;
                 int m_id2 = movies[index3-1].MovieId;
@@ -262,10 +256,6 @@ namespace CinemaLive
                             Info2.Text += p.P_name;
                     }
                 }
-                string desc1 = movies[index1].M_desc;
-                string desc2 = movies[index3].M_desc;
-                Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
-                Info2.Text += "\n" + desc2.Remove(70, desc2.Length - 71) + "...";
                 WishList wishList1 = null, wishList2 = null;
                 int m_id1 = movies[index1].MovieId;
                 int m_id2 = movies[index3].MovieId;
@@ -309,8 +299,6 @@ namespace CinemaLive
                             Info1.Text += p.P_name;
                     }
                 }
-                string desc1 = movies[index1].M_desc;
-                Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
                 WishList wishList1 = null;
                 int m_id1 = movies[index1].MovieId;
                 wishList1 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id1).FirstOrDefault();
@@ -420,7 +408,7 @@ namespace CinemaLive
             string film = Film_Name1.Text;
             FilmCard filmCard = new FilmCard(user, login, film);
             filmCard.Show();
-            Hide();
+            Close();
 
         }
         private void Button_SecondFilm_Click(object sender, RoutedEventArgs e)
@@ -428,71 +416,78 @@ namespace CinemaLive
             string film = Film_Name2.Text;
             FilmCard filmCard = new FilmCard(user, login, film);
             filmCard.Show();
-            Hide();
+            Close();
+            
         }
         private void Button_ThirdFilm_Click(object sender, RoutedEventArgs e)
         {
             string film = Film_Name3.Text;
             FilmCard filmCard = new FilmCard(user, login, film);
             filmCard.Show();
-            Hide();
+            Close();
         }
 
         private void Button_Logout_Click(object sender, RoutedEventArgs e)
         {
-            EntryWindow entryWindow = new EntryWindow();
-            entryWindow.Show();
-            Hide();
+            Confirm confirm = new Confirm();
+            confirm.Owner = this;
+            confirm.ShowDialog();
         }
         private void Button_Next_Click(object sender, RoutedEventArgs e)
         {
-            if (List.Text == "")
+            if (List.Text != "" && int.TryParse(List.Text, out int number))
             {
-                this.List.Text = "1";
-            }
-            int NumberList = int.Parse(List.Text);
-            if (NumberList + 1 == pages)
-            {
-                NumberList++;
-                this.List.Text = Convert.ToString(NumberList);
-                if (movies.Count % 3 == 2)
+                int NumberList = int.Parse(List.Text);
+                if (NumberList + 1 == pages)
                 {
-                    NumberList *= 3;
-                    mainOutput(NumberList - 3, NumberList - 2);
+                    NumberList++;
+                    this.List.Text = Convert.ToString(NumberList);
+                    if (movies.Count % 3 == 2)
+                    {
+                        NumberList *= 3;
+                        mainOutput(NumberList - 3, NumberList - 2);
+                    }
+                    else if (movies.Count % 3 == 1)
+                    {
+                        NumberList *= 3;
+                        mainOutput(NumberList - 3, NumberList - 3);
+                    }
+                    else
+                    {
+                        NumberList *= 3;
+                        mainOutput(NumberList - 3, NumberList - 1);
+                    }
                 }
-                else if (movies.Count % 3 == 1)
+                else if (NumberList != pages)
                 {
-                    NumberList *= 3;
-                    mainOutput(NumberList - 3, NumberList - 3);
-                }
-                else
-                {
+                    NumberList++;
+                    this.List.Text = Convert.ToString(NumberList);
                     NumberList *= 3;
                     mainOutput(NumberList - 3, NumberList - 1);
                 }
             }
-            else if (NumberList != pages)
+            else
             {
-                NumberList++;
-                this.List.Text = Convert.ToString(NumberList);
-                NumberList *= 3;
-                mainOutput(NumberList - 3, NumberList - 1);
+                this.List.Text = "1";
             }
         }
 
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
-            if (List.Text == "")
+            if (List.Text != "" && int.TryParse(List.Text, out int number))
+            {
+                int NumberList = int.Parse(List.Text);
+                if (NumberList != 1)
+                {
+                    NumberList--;
+                    this.List.Text = Convert.ToString(NumberList);
+                    NumberList *= 3;
+                    mainOutput(NumberList - 3, NumberList - 1);
+                }
+            }
+            else
             {
                 this.List.Text = "1";
-            }
-            int NumberList = int.Parse(List.Text);
-            if (NumberList != 1)
-            {
-                NumberList--;
-                this.List.Text = Convert.ToString(NumberList);
-                NumberList *= 3;
-                mainOutput(NumberList - 3, NumberList - 1);
             }
 
         }
@@ -501,12 +496,12 @@ namespace CinemaLive
         {
             Catalog catalog = new Catalog(user, login);
             catalog.Show();
-            Hide();
+            Close();
         }
 
         private void PageChanged(object sender, KeyEventArgs e)
         {
-            if (List.Text != "")
+            if (List.Text != "" && int.TryParse(List.Text, out int number))
             {
                 int NumberList = int.Parse(List.Text);
                 if (NumberList >= 1 && NumberList < pages)
@@ -536,6 +531,10 @@ namespace CinemaLive
                 {
                     this.List.Text = "1";
                 }
+            }
+            else
+            {
+                this.List.Text = "1";
             }
         }
 

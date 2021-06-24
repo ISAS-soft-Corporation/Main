@@ -46,7 +46,11 @@
             <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="406,124,388,503" TextWrapping="Wrap"/>
             <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="852,227,370,444" TextWrapping="Wrap"/>
             <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="406,219,505,441" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5"/>
-            <TextBlock x:Name="About" FontSize ="20" Foreground="White" Text="Оставшиеся в живых члены команды Мстителей и их союзники должны разработать новый план, который поможет противостоять разрушительным действиям могущественного титана Таноса. После наиболее масштабной и трагической битвы в истории они не могут допустить ошибку. " TextWrapping="Wrap" Margin="406,284,127,130"/>
+            <ScrollViewer Margin="406,284,127,34">
+                <TextBlock x:Name="About" FontSize ="20" Foreground="White" 
+                           Text="Оставшиеся в живых члены команды Мстителей и их союзники должны разработать новый план, который поможет противостоять разрушительным действиям могущественного титана Таноса. После наиболее масштабной и трагической битвы в истории они не могут допустить ошибку. " 
+                           TextWrapping="Wrap" />
+            </ScrollViewer>
             <Button Background="{x:Null}"  BorderBrush="{x:Null}" Height="60" Width="60" Margin="10,0,1208,662" Click="Back_Home_Click">
                 <materialDesign:PackIcon Kind="Theaters" Foreground="#FF5C99D6" Height="28" Width="28"/>
             </Button>
@@ -54,11 +58,11 @@
         <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1192,60,10,567">
             <materialDesign:PackIcon Kind="BookAccount" Foreground="White" Height="57" Width="53" BorderBrush="#FF33414F" BorderThickness="3"/>
         </Button>
-        <TextBlock Margin="408,635,532,34">
-            <Hyperlink Click="Watch"  Foreground="White" FontSize="25">Ссылка на просмотр фильма</Hyperlink>
+        <TextBlock Margin="116,599,824,70">
+            <Hyperlink Click="Watch"  Foreground="White" FontSize="25">Смотерть фильм</Hyperlink>
         </TextBlock>
-        <TextBlock Margin="408,590,532,90">
-            <Hyperlink Click="Trailer"  Foreground="White" FontSize="25">Ссылка на трейлер</Hyperlink>
+        <TextBlock Margin="116,554,824,126">
+            <Hyperlink Click="Trailer"  Foreground="White" FontSize="25">Смотерть трейлер</Hyperlink>
         </TextBlock>
     </Grid>
 </Window>

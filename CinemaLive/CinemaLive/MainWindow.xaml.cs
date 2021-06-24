@@ -96,7 +96,8 @@ namespace CinemaLive
                     mdb.SaveChanges();
                     Catalog catalog = new Catalog(user.Id, user.Login);
                     catalog.Show();
-                    Hide();
+                    Close();
+                    
                 }
             }
         }
@@ -105,7 +106,7 @@ namespace CinemaLive
         {
             EntryWindow entryWindow = new EntryWindow();
             entryWindow.Show();
-            Hide();
+            Close();
         }
     }
 }

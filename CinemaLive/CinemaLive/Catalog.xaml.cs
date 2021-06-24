@@ -146,10 +146,6 @@ namespace CinemaLive
                             Info2.Text += p.P_name;
                     }
                 }
-                string desc1 = movies[index1].M_desc;
-                string desc2 = movies[index2].M_desc;
-                Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
-                Info2.Text += "\n" + desc2.Remove(70, desc2.Length - 71) + "...";
                 WishList wishList1 = null, wishList2 = null;
                 int m_id1 = movies[index1].MovieId;
                 int m_id2 = movies[index2].MovieId;
@@ -192,8 +188,6 @@ namespace CinemaLive
                             Info1.Text += p.P_name;
                     }
                 }
-                string desc1 = movies[index1].M_desc;
-                Info1.Text += "\n" + desc1.Remove(70, desc1.Length - 71) + "...";
                 WishList wishList1 = null;
                 int m_id1 = movies[index1].MovieId;
                 wishList1 = mdb.WishLists.Where(s => s.U_id == user && s.M_id == m_id1).FirstOrDefault();
@@ -244,12 +238,10 @@ namespace CinemaLive
 
         private void Button_Next_Click(object sender, RoutedEventArgs e)
         {
-            if (List.Text == "")
+            if (List.Text != "" && int.TryParse(List.Text, out int number))
             {
-                this.List.Text = "1";
-            }
-            int NumberList = int.Parse(List.Text);
-            if (NumberList + 1 == pages)
+                int NumberList = int.Parse(List.Text);
+                if (NumberList + 1 == pages)
                 {
                     NumberList++;
                     this.List.Text = Convert.ToString(NumberList);
@@ -263,29 +255,37 @@ namespace CinemaLive
                         NumberList *= 2;
                         mainOutput(NumberList - 2, NumberList - 1);
                     }
-                } 
-            else if (NumberList != pages)
+                }
+                else if (NumberList != pages)
+                {
+                    NumberList++;
+                    this.List.Text = Convert.ToString(NumberList);
+                    NumberList *= 2;
+                    mainOutput(NumberList - 2, NumberList - 1);
+                }
+            }
+            else
             {
-                NumberList++;
-                this.List.Text = Convert.ToString(NumberList);
-                NumberList *= 2;
-                mainOutput(NumberList - 2, NumberList - 1);
+                this.List.Text = "1";
             }
         }
 
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
-            if (List.Text == "")
+            if (List.Text != "" && int.TryParse(List.Text, out int number))
+            {
+                int NumberList = int.Parse(List.Text);
+                if (NumberList != 1)
+                {
+                    NumberList--;
+                    this.List.Text = Convert.ToString(NumberList);
+                    NumberList *= 2;
+                    mainOutput(NumberList - 2, NumberList - 1);
+                }
+            }
+            else
             {
                 this.List.Text = "1";
-            }
-            int NumberList = int.Parse(List.Text);
-            if (NumberList != 1)
-            {
-                NumberList--;
-                this.List.Text = Convert.ToString(NumberList);
-                NumberList *= 2;
-                mainOutput(NumberList - 2, NumberList - 1);
             }
 
         }
@@ -379,7 +379,7 @@ namespace CinemaLive
             string film = Film_Name1.Text;
             FilmCard filmCard = new FilmCard(user, login, film);
             filmCard.Show();
-            Hide();
+            Close();
 
         }
         private void Button_SecondFilm_Click(object sender, RoutedEventArgs e)
@@ -387,28 +387,26 @@ namespace CinemaLive
             string film = Film_Name2.Text;
             FilmCard filmCard = new FilmCard(user, login, film);
             filmCard.Show();
-            Hide();
+            Close();
         }
 
         private void Button_Logout_Click(object sender, RoutedEventArgs e)
         {
-            Message mess = new Message("Вы уверены что хотите выйти?");
-            mess.ShowDialog();
-            EntryWindow entryWindow = new EntryWindow();
-            entryWindow.Show();
-            Hide();                          
+            Confirm confirm = new Confirm();
+            confirm.Owner = this;
+            confirm.ShowDialog();
         }
 
         private void Button_Choise_Click(object sender, RoutedEventArgs e)
         {
             Choise choise = new Choise(user, login);
             choise.Show();
-            Hide();
+            Close();
         }
 
         private void PageChanged(object sender, KeyEventArgs e)
         {
-            if (List.Text != "")
+            if (List.Text != "" && int.TryParse(List.Text, out int number))
             {
                 int NumberList = int.Parse(List.Text);
                 if (NumberList >= 1 && NumberList < pages)
@@ -433,6 +431,10 @@ namespace CinemaLive
                 {
                     this.List.Text = "1";
                 }
+            }
+            else
+            {
+                this.List.Text = "1";
             }
         }
 
@@ -543,7 +545,7 @@ namespace CinemaLive
                 int idGenre = getGenreId(genre); 
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating == rate && movie.M_year == year
+                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating >= rate && movie.M_year == year
                         && movie.M_g == idGenre && movie.M_country == country)
                     {
                         moviesSearch.Add(movie);
@@ -573,7 +575,7 @@ namespace CinemaLive
                 int idGenre = getGenreId(genre);
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating == rate
+                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating >= rate
                         && movie.M_g == idGenre && movie.M_country == country)
                     {
                         moviesSearch.Add(movie);
@@ -587,7 +589,7 @@ namespace CinemaLive
                 moviesSearch = new List<Movie>();
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating == rate && movie.M_year == year
+                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating >= rate && movie.M_year == year
                          && movie.M_country == country)
                     {
                         moviesSearch.Add(movie);
@@ -602,7 +604,7 @@ namespace CinemaLive
                 int idGenre = getGenreId(genre);
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_rating == rate && movie.M_year == year
+                    if (movie.M_rating >= rate && movie.M_year == year
                         && movie.M_g == idGenre && movie.M_country == country)
                     {
                         moviesSearch.Add(movie);
@@ -617,7 +619,7 @@ namespace CinemaLive
                 int idGenre = getGenreId(genre);
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating == rate && movie.M_year == year
+                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating >= rate && movie.M_year == year
                         && movie.M_g == idGenre)
                     {
                         moviesSearch.Add(movie);
@@ -660,7 +662,7 @@ namespace CinemaLive
                 int idGenre = getGenreId(genre);
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating == rate 
+                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating >= rate 
                         && movie.M_g == idGenre)
                     {
                         moviesSearch.Add(movie);
@@ -674,7 +676,7 @@ namespace CinemaLive
                 moviesSearch = new List<Movie>();
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating == rate && movie.M_country == country)
+                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating >= rate && movie.M_country == country)
                     {
                         moviesSearch.Add(movie);
                     }
@@ -701,7 +703,7 @@ namespace CinemaLive
                 moviesSearch = new List<Movie>();
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating == rate && movie.M_year == year)
+                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating >= rate && movie.M_year == year)
                     {
                         moviesSearch.Add(movie);
                     }
@@ -730,7 +732,7 @@ namespace CinemaLive
                 int idGenre = getGenreId(genre);
                 foreach (Movie movie in movies)
                 {
-                    if ( movie.M_rating == rate 
+                    if ( movie.M_rating >= rate 
                         && movie.M_g == idGenre && movie.M_country == country)
                     {
                         moviesSearch.Add(movie);
@@ -745,7 +747,7 @@ namespace CinemaLive
                 int idGenre = getGenreId(genre);
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_rating == rate && movie.M_year == year
+                    if (movie.M_rating >= rate && movie.M_year == year
                         && movie.M_g == idGenre)
                     {
                         moviesSearch.Add(movie);
@@ -759,7 +761,7 @@ namespace CinemaLive
                 moviesSearch = new List<Movie>();
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_rating == rate && movie.M_year == year
+                    if (movie.M_rating >= rate && movie.M_year == year
                         && movie.M_country == country)
                     {
                         moviesSearch.Add(movie);
@@ -810,7 +812,7 @@ namespace CinemaLive
                 moviesSearch = new List<Movie>();
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating == rate)
+                    if (movie.M_name.ToLower().Contains(film.ToLower()) && movie.M_rating >= rate)
                     {
                         moviesSearch.Add(movie);
                     }
@@ -850,7 +852,7 @@ namespace CinemaLive
                 int idGenre = getGenreId(genre);
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_rating == rate && movie.M_g == idGenre)
+                    if (movie.M_rating >= rate && movie.M_g == idGenre)
                     {
                         moviesSearch.Add(movie);
                     }
@@ -862,7 +864,7 @@ namespace CinemaLive
                 moviesSearch = new List<Movie>();
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_rating == rate  && movie.M_country == country)
+                    if (movie.M_rating >= rate  && movie.M_country == country)
                     {
                         moviesSearch.Add(movie);
                     }
@@ -886,7 +888,7 @@ namespace CinemaLive
                 moviesSearch = new List<Movie>();
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_rating == rate && movie.M_year == year)
+                    if (movie.M_rating >= rate && movie.M_year == year)
                     {
                         moviesSearch.Add(movie);
                     }
@@ -947,7 +949,7 @@ namespace CinemaLive
                 moviesSearch = new List<Movie>();
                 foreach (Movie movie in movies)
                 {
-                    if (movie.M_rating == rate)
+                    if (movie.M_rating >= rate)
                     {
                         moviesSearch.Add(movie);
                     }

@@ -38,6 +38,7 @@ namespace CinemaLive
             EntryWindow entryWindow = new EntryWindow();
             entryWindow.Show();
             Hide();
+            this.Owner.Close();
         }
     }
 }
