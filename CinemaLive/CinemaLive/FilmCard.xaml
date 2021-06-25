@@ -59,10 +59,10 @@
             <materialDesign:PackIcon Kind="BookAccount" Foreground="White" Height="57" Width="53" BorderBrush="#FF33414F" BorderThickness="3"/>
         </Button>
         <TextBlock Margin="116,599,824,70">
-            <Hyperlink Click="Watch"  Foreground="White" FontSize="25">Смотерть фильм</Hyperlink>
+            <Hyperlink Click="Watch"  Foreground="White" FontSize="25">Смотреть фильм</Hyperlink>
         </TextBlock>
         <TextBlock Margin="116,554,824,126">
-            <Hyperlink Click="Trailer"  Foreground="White" FontSize="25">Смотерть трейлер</Hyperlink>
+            <Hyperlink Click="Trailer"  Foreground="White" FontSize="25">Смотреть трейлер</Hyperlink>
         </TextBlock>
     </Grid>
 </Window>
