@@ -52,7 +52,7 @@ namespace CinemaLive
 
                 foreach (Movie movie in movies)
                 {
-                    castings.Add(mdb.Castings.Where(s => s.M_id == movie.MovieId).FirstOrDefault());
+                    castings.Add(mdb.Castings.Where(s => s.M_id == movie.MovieId && s.P_role == "Режиссер").FirstOrDefault());
                     genres.Add(mdb.Genres.Where(s => s.GenreId == movie.M_g).FirstOrDefault());
                 }
 
