@@ -8,8 +8,9 @@ namespace CinemaLive
 {
     class Genre
     {
-        public int g_id { get; set; }
+        public int GenreId { get; set; }
         private string g_name;
+        public Genre() { }
 
         public Genre(string g_name)
         {

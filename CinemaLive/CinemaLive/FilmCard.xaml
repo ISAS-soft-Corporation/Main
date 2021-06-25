@@ -7,50 +7,62 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Image Source="BackImages/CatalogBack.jpg" HorizontalAlignment="Center" Width="1503" Margin="-223,-29,0,-102"/>
+        <Image Source="BackImages/MessageBack.jpg" HorizontalAlignment="Center" Width="1502" Margin="-152,-17,-70,-114"/>
         <Grid x:Name="shapka" Height="60" VerticalAlignment="Top" Background="#FF33414F">
+            <Label Content="Подробнее о фильме" FontSize="24" FontWeight="Bold" Margin="540,10,476,10" Foreground="White" Name="Choise" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="264">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="20" Color="#FFCDCDCD" ShadowDepth="0"/>
+                </Label.Effect>
+            </Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0">
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" Click="exit" Height="Auto" Width="62">
-                    <materialDesign:PackIcon Kind="Power" Foreground="#FF5C99D6" Height="28" Width="28"/>
+                    <materialDesign:PackIcon Kind="Close" Foreground="#FF5C99D6" Height="28" Width="28"/>
                 </Button>
             </StackPanel>
-            <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,7,1141,9" Height="Auto" Click="Button_Logout_Click">
+            <Button x:Name="Logout" Background="{x:Null}" BorderBrush="{x:Null}" Height="60" Width="60" Margin="74,0,1146,0"  Click="Button_Logout_Click">
                 <materialDesign:PackIcon Kind="Logout" Foreground="#FF5C99D6" Width="28" Height="28"/>
             </Button>
-            <Label Content="Привет, " FontSize="20" FontWeight="Bold" Margin="100,12,800,9" Foreground="White" Name="Hello"
-                   MouseDoubleClick="Button_Choise_Click">
+            <Label Content="Привет, " FontSize="20" FontWeight="Bold" Margin="152,10,0,11" Foreground="White" Name="Hello"
+                   MouseDoubleClick="Button_Choise_Click" HorizontalAlignment="Left">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="20" Color="#FFCDCDCD" ShadowDepth="0"/>
                 </Label.Effect>
             </Label>
         </Grid>
         <Grid>
-            <Border  Margin="40,90,70,10" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="620" Width="1170" >
+            <Border  Margin="84,90,90,10" Background="#7F0000FF" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="30" CornerRadius="20" Height="620" Width="1097" >
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"/>
                 </Border.Effect>
-                <Image Source="567640.jpg" Width="264" HorizontalAlignment="Left" Margin="-1,-106,0,66"/>
+                <Image Source="567640.jpg" Width="264" HorizontalAlignment="Left" Margin="0,-52,0,122" Name="Poster"/>
             </Border>
-            <Label Content="В избранное" HorizontalAlignment="Left" Height="54" Margin="909,125,0,0" VerticalAlignment="Top" Width="187" FontSize="30" Foreground="White"/>
-            <Button x:Name="Favorite" Foreground="Silver" Height="Auto" Margin="1071,126,117,537" Click="Button_Favorite_Click" BorderBrush="{x:Null}" Background="{x:Null}">
+            <Label Content="В избранное" HorizontalAlignment="Left" Height="54" Margin="915,120,0,0" VerticalAlignment="Top" Width="187" FontSize="30" Foreground="White"/>
+            <Button x:Name="Favorite" Foreground="Silver" Height="Auto" Margin="1076,120,112,543" Click="Button_Favorite_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 <materialDesign:PackIcon Kind="Favorite" Height="37" Width="45"/>
             </Button>
-            <Button Foreground="White" Height="Auto" Margin="727,220,459,443" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
+            <Button Foreground="White" Height="Auto" Margin="780,222,406,441" BorderBrush="{x:Null}" Background="{x:Null}" IsEnabled="False">
                 <materialDesign:PackIcon Kind="GoogleAnalytics" Height="40" Width="50"/>
             </Button>
-            <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="358,126,436,501" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="800,225,422,446" TextWrapping="Wrap"/>
-            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="358,219,553,441" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5"/>
-            <TextBlock x:Name="About" FontSize ="20" Foreground="White" Text="Оставшиеся в живых члены команды Мстителей и их союзники должны разработать новый план, который поможет противостоять разрушительным действиям могущественного титана Таноса. После наиболее масштабной и трагической битвы в истории они не могут допустить ошибку. " TextWrapping="Wrap" Margin="358,284,127,211"/>
-            <Button x:Name="Back" Foreground="White" Height="Auto" Margin="58,624,1121,32" Click="Back_Home_Click" BorderBrush="{x:Null}" Background="{x:Null}">
-                <materialDesign:PackIcon Kind="Home" Height="37" Width="45"/>
+            <TextBlock x:Name="Film_Name1" Text="Мстители: Финал" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="406,124,388,503" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Film_Rate1" Text="7,6" FontSize="30" Foreground="White" FontFamily="Yu Gothic UI Semibold" Margin="852,227,370,444" TextWrapping="Wrap"/>
+            <TextBlock x:Name="Info1" Text="Жанр:Боевик, Научная фантастика    Режиссер: Братья Руссо" FontSize="17" Foreground="#FFAEAEAE" FontFamily="Yu Gothic UI Semibold" Margin="406,219,505,441" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5"/>
+            <ScrollViewer Margin="406,284,127,34">
+                <TextBlock x:Name="About" FontSize ="20" Foreground="White" 
+                           Text="Оставшиеся в живых члены команды Мстителей и их союзники должны разработать новый план, который поможет противостоять разрушительным действиям могущественного титана Таноса. После наиболее масштабной и трагической битвы в истории они не могут допустить ошибку. " 
+                           TextWrapping="Wrap" />
+            </ScrollViewer>
+            <Button Background="{x:Null}"  BorderBrush="{x:Null}" Height="60" Width="60" Margin="10,0,1208,662" Click="Back_Home_Click">
+                <materialDesign:PackIcon Kind="Theaters" Foreground="#FF5C99D6" Height="28" Width="28"/>
             </Button>
         </Grid>
-        <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1122,617,80,10">
+        <Button x:Name="Choise_button" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Choise_Click" Height="Auto" Margin="1192,60,10,567">
             <materialDesign:PackIcon Kind="BookAccount" Foreground="White" Height="57" Width="53" BorderBrush="#FF33414F" BorderThickness="3"/>
         </Button>
-        <TextBlock Margin="358,532,582,137">
-            <Hyperlink Click="Hyperlink_Click"  Foreground="White" FontSize="25">Ссылка на просмотр фильма</Hyperlink>
+        <TextBlock Margin="116,599,824,70">
+            <Hyperlink Click="Watch"  Foreground="White" FontSize="25">Смотерть фильм</Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="116,554,824,126">
+            <Hyperlink Click="Trailer"  Foreground="White" FontSize="25">Смотерть трейлер</Hyperlink>
         </TextBlock>
     </Grid>
 </Window>

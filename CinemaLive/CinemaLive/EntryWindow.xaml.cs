@@ -22,6 +22,7 @@ namespace CinemaLive
         public EntryWindow()
         {
             InitializeComponent();
+            
             shapka.MouseLeftButtonDown += new MouseButtonEventHandler(layoutRoot_MouseLeftButtonDown);
         }
 
@@ -29,7 +30,7 @@ namespace CinemaLive
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            Hide();
+            Close();
         }
         private void exit(object sender, RoutedEventArgs e)
         {
@@ -71,11 +72,9 @@ namespace CinemaLive
 
                 if (user != null)
                 {
-                    Message mess = new Message("Вход выполнен успешно");
-                    mess.ShowDialog();
-                    Catalog catalog = new Catalog(user.id, user.Login);
+                    Catalog catalog = new Catalog(user.Id, user.Login);
                     catalog.Show();
-                    Hide();
+                    Close();
                 }
                 else
                 {
